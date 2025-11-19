@@ -57,4 +57,8 @@ public class SortedArrayBinarySearch<T extends Comparable<T>> implements BinaryS
             System.out.println(t);
         }
     }
+
+    public T[] getArray(T[] tArray) {
+        return list.toArray(tArray);
+    }
 }
