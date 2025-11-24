@@ -1,3 +1,5 @@
+package rank_select;
+
 public interface RankSelectInterface {
     public int rank(int index) throws Exception;
 

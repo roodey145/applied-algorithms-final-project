@@ -1,3 +1,5 @@
+package rank_select;
+
 public class RankSelectNaive implements RankSelectInterface {
     private final int[] data;
 
