@@ -53,6 +53,7 @@ public class OtherArrayBinarySearch implements BinarySearchTree<Integer> {
         do { 
             // Get current number
             cValue = tree[index];
+            if (cValue == x) return cValue;   // added
             if(cValue < x) {
                 // Potential predeccesor
                 predIndex = index;
@@ -68,7 +69,7 @@ public class OtherArrayBinarySearch implements BinarySearchTree<Integer> {
         return predIndex == -1 ? null : tree[predIndex];
     }
 
-    private int getIndex(Integer x, int low, int high, int prevIndex) {
+/*     private int getIndex(Integer x, int low, int high, int prevIndex) {
         System.out.println("low: " + low + ", high: " + high + ", PrevIndex " + prevIndex);
         if(low > high && x.compareTo(list.get(prevIndex)) > 0){
             System.out.println("X is larger than " + list.get(prevIndex) + ", " + x.compareTo(list.get(prevIndex)));
@@ -94,7 +95,7 @@ public class OtherArrayBinarySearch implements BinarySearchTree<Integer> {
         else {
             return getIndex(x, low, index - 1, index);
         }
-    }
+    } */
 
     public void printList() {
         for(Integer t : list) {

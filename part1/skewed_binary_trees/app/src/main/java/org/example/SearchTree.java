@@ -32,6 +32,9 @@ public class SearchTree {
         Node temp = this.root;
         Integer pred = null;
         while (temp != null) {
+
+            if (x == temp.key) return temp.key;
+
             if (x < temp.key) {
                 temp = temp.left;
             } else {
