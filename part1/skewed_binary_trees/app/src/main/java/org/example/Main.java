@@ -4,11 +4,16 @@
 package org.example;
 
 public class Main {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new Main().getGreeting());
+        var data = InputReader.readInput();
+        int[] arr = data.array();
+        int[] queries = data.queries();
+        float alpha = Float.parseFloat(args[0]);
+        SearchTree st = new SearchTree(arr, alpha);
+        for (int i = 0; i < queries.length; i++) {
+            System.out.println(st.Pred(queries[i]));
+        }
+
     }
 }
