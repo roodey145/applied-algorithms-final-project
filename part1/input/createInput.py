@@ -29,3 +29,6 @@ def create_data_file(filename: str, arr_size: int, query_size: int):
             file.write(f"{elem}\n")
         for elem in queries:
             file.write(f"{elem}\n")
+
+
+create_data_file("small.txt", 10, 20)
