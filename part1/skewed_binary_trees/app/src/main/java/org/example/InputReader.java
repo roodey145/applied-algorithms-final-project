@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class InputReader {
 
-    private record InputData(int[] array, int[] queries) {
+    public record InputData(int[] array, int[] queries) {
     }
 
     static InputData readInput() {
