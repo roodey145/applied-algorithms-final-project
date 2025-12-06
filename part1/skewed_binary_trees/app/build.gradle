@@ -32,11 +32,11 @@ java {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'org.example.App'
+        attributes 'Main-Class': 'org.example.Main'
     }
 }
 
 application {
     // Define the main class for the application.
-    mainClass = 'org.example.App'
+    mainClass = 'org.example.Main'
 }
