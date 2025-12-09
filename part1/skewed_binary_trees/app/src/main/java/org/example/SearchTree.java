@@ -28,7 +28,7 @@ public class SearchTree {
         }
     }
 
-    public Integer Pred(int x) {
+    public Integer pred(int x) {
         Node temp = this.root;
         Integer pred = null;
         while (temp != null) {
@@ -64,7 +64,7 @@ public class SearchTree {
     public static void main(String[] args) {
         int[] a = { 1, 2, 3, 4, 5, 6, 7, 145, 20 };
         SearchTree st = new SearchTree(a, 0.2f);
-        System.out.println(st.Pred(200));
+        System.out.println(st.pred(200));
 
     }
 
