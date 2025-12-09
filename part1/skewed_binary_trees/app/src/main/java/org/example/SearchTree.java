@@ -60,12 +60,4 @@ public class SearchTree {
         node.right = buildSkewedTree(root_index + 1, end);
         return node;
     }
-
-    public static void main(String[] args) {
-        int[] a = { 1, 2, 3, 4, 5, 6, 7, 145, 20 };
-        SearchTree st = new SearchTree(a, 0.2f);
-        System.out.println(st.pred(200));
-
-    }
-
 }

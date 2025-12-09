@@ -3,16 +3,64 @@
  */
 package org.example;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
         var data = InputReader.readInput();
-        int[] arr = data.array();
-        int[] queries = data.queries();
-        float alpha = Float.parseFloat(args[0]);
-        SearchTree st = new SearchTree(arr, alpha);
-        for (int i = 0; i < queries.length; i++) {
-            System.out.println(st.Pred(queries[i]));
+        int[] arr = data.array(); // An array of distinct random integers
+        int[] queries = data.queries(); // An array of random integers to query the implementations
+        float alpha = Float.parseFloat(args[1]);
+        Integer[] arrInteger = Arrays.stream(arr) // for Integer[] types used in constructors of some implementations
+                .boxed()
+                .toArray(Integer[]::new);
+
+        if (args[0].equals("SortedArrayBinarySearch")) {
+            SortedArrayBinarySearch<Integer> sabs = new SortedArrayBinarySearch<>(arrInteger, alpha);
+            // Warm up
+            for (int i = 0; i < 100; i++)
+                sabs.pred(queries[i]);
+
+            long start = System.nanoTime();
+            for (int i = 0; i < queries.length; i++) {
+                sabs.pred(queries[i]);
+            }
+            long end = System.nanoTime();
+            System.out.println(end - start);
+        }
+
+        if (args[0].equals("SearchTree")) {
+            SearchTree st = new SearchTree(arr, alpha);
+
+            // Warm up
+            for (int i = 0; i < 100; i++)
+                st.pred(queries[i]);
+
+            long start = System.nanoTime();
+            for (int i = 0; i < queries.length; i++) {
+                st.pred(queries[i]);
+            }
+
+            long end = System.nanoTime();
+            System.out.println(end - start);
+
+        }
+
+        if (args[0].equals("OtherArrayBinarySearch")) {
+            OtherArrayBinarySearch oab = new OtherArrayBinarySearch(arrInteger, alpha);
+
+            // Warm up
+            for (int i = 0; i < 100; i++) {
+                oab.pred(queries[i]);
+            }
+
+            long start = System.nanoTime();
+            for (int i = 0; i < queries.length; i++) {
+                oab.pred(queries[i]);
+            }
+            long end = System.nanoTime();
+            System.out.println(end - start);
         }
 
     }
