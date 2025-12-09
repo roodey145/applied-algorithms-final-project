@@ -20,7 +20,7 @@ public class Main {
             SortedArrayBinarySearch<Integer> sabs = new SortedArrayBinarySearch<>(arrInteger, alpha);
             // Warm up
             for (int i = 0; i < 100; i++)
-                sabs.pred(queries[i]);
+                sabs.pred(queries[i % queries.length]);
 
             long start = System.nanoTime();
             for (int i = 0; i < queries.length; i++) {
@@ -35,7 +35,7 @@ public class Main {
 
             // Warm up
             for (int i = 0; i < 100; i++)
-                st.pred(queries[i]);
+                st.pred(queries[i % queries.length]);
 
             long start = System.nanoTime();
             for (int i = 0; i < queries.length; i++) {
@@ -52,7 +52,7 @@ public class Main {
 
             // Warm up
             for (int i = 0; i < 100; i++) {
-                oab.pred(queries[i]);
+                oab.pred(queries[i % queries.length]);
             }
 
             long start = System.nanoTime();
