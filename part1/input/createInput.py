@@ -23,12 +23,18 @@ def create_data_file(filename: str, arr_size: int, query_size: int):
     # refer to the size of the array and the the size of the queries that will be given as argument to
     # the pred method
     with open(f"./{filename}", "w") as file:
+        print(f"Creating file {filename}...")
         file.write(f"{arr_size}\n")
         file.write(f"{query_size}\n")
         for elem in arr:
             file.write(f"{elem}\n")
         for elem in queries:
             file.write(f"{elem}\n")
+        print(f"File created ✓  ")
 
 
-create_data_file("small.txt", 10, 20)
+# create_data_file("small.txt", 10, 20)
+
+create_data_file("data_10k.txt", 10_000, 100_000)
+create_data_file("data_50k.txt", 50_000, 500_000)
+create_data_file("data_100k.txt", 100_000, 1_000_000)
