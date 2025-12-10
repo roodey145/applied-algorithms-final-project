@@ -27,7 +27,8 @@ public class SortedArrayBinarySearch<T extends Comparable<T>> implements BinaryS
     }
 
     private int getIndex(T x, int low, int high, int prevIndex) {
-        System.out.println("low: " + low + ", high: " + high + ", PrevIndex " + prevIndex);
+        // System.out.println("low: " + low + ", high: " + high + ", PrevIndex " +
+        // prevIndex);
         /*
          * if (low > high && x.compareTo(list.get(prevIndex)) > 0) {
          * System.out.println("X is larger than " + list.get(prevIndex) + ", " +
@@ -48,7 +49,8 @@ public class SortedArrayBinarySearch<T extends Comparable<T>> implements BinaryS
 
         int index = low + (int) ((high - low) * alpha);
         T selected = list.get(index);
-        System.out.println("Selected: " + selected + " compared to: " + x + " is " + selected.compareTo(x));
+        // System.out.println("Selected: " + selected + " compared to: " + x + " is " +
+        // selected.compareTo(x));
         if (selected.compareTo(x) < 0)
             return getIndex(x, index + 1, high, index);
         else {
