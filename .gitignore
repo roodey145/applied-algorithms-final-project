@@ -25,6 +25,9 @@
 # Icon must end with two \r
 Icon
 
+# Ignore largedatasets
+part1/input/data_2m.txt
+part1/input/data_500k.txt
 
 # Thumbnails
 ._*
