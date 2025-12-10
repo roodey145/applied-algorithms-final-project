@@ -5,7 +5,7 @@ from typing import Dict
 import numpy as np
 
 
-def plot_execution_time_csv(csv_file: str, filename: str):
+def plot_execution_time_csv(csv_file: str, filename: str, size: int):
     # Read CSV and organize data
     data: Dict[str, np.ndarray] = defaultdict(list)
     with open(csv_file, newline="") as f:
@@ -33,7 +33,8 @@ def plot_execution_time_csv(csv_file: str, filename: str):
         alphas, means, stds = arr[:, 0], arr[:, 1], arr[:, 2]
         ax.errorbar(alphas, means, yerr=stds, marker="o", capsize=3.0, color=colors(i))
 
-    ax.set_xlabel("Alpha")
+    xLabel = f"Alpha \n n: {size}"
+    ax.set_xlabel(xLabel)
     ax.set_ylabel("Mean Execution Time (ms)")  # updated to ms
     ax.set_title("Execution Time vs Alpha")
     ax.legend(algorithms)
@@ -43,5 +44,5 @@ def plot_execution_time_csv(csv_file: str, filename: str):
 
 
 plot_execution_time_csv(
-    "../benchmark_results/results_small.csv", "plot_results_small.pdf"
+    "../benchmark_results/results_small.csv", "plot_results_small.pdf", 50000
 )
