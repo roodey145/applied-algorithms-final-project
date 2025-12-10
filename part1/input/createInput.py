@@ -35,6 +35,11 @@ def create_data_file(filename: str, arr_size: int, query_size: int):
 
 # create_data_file("small.txt", 10, 20)
 
-create_data_file("data_10k.txt", 10_000, 100_000)
+# Fits entirely in L2 cache
 create_data_file("data_50k.txt", 50_000, 500_000)
-create_data_file("data_100k.txt", 100_000, 1_000_000)
+
+# Fits in l3 cache
+create_data_file("data_500k.txt", 500_000, 5_000_000)
+
+# This file will exceed all caches on my specs (cache miss heavy)
+create_data_file("data_2m.txt", 2_000_000, 20_000_000)
