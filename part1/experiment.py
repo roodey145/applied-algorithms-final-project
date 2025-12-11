@@ -51,7 +51,11 @@ def benchmark(filename: str, runs=30):
         for alpha in ALPHAS:
             results[impl][alpha] = []
 
-            print(f"  Alpha {alpha}: ", end="", flush=True)
+            print(
+                f"  Alpha {alpha}: running program and adding time... ",
+                end="",
+                flush=True,
+            )
 
             for run in range(runs):
                 result = run_java(
@@ -99,12 +103,16 @@ def results_to_csv(results, filename):
     print(f"✓ Results saved to {filename}")
 
 
-# Usage:
+# Run this test to ensure everything is set up nicely
 # results_test = benchmark(INPUT_DATA["test"])
 # results_to_csv(results_test, "benchmark_results/results_test.csv", "10")
 
 results_small = benchmark(INPUT_DATA["small"])
 results_to_csv(results_small, "benchmark_results/results_small.csv")
 
-# results_large = benchmark(INPUT_DATA["large"])
-# results_to_csv(results_large, "results_large.csv", "2m")
+results_medium = benchmark(INPUT_DATA["medium"])
+results_to_csv(results_medium, "benchmark_results/results_medium.csv")
+
+
+results_large = benchmark(INPUT_DATA["large"])
+results_to_csv(results_large, "benchmark_results/results_large.csv")
