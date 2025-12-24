@@ -82,6 +82,37 @@ public class OtherArrayBinarySearchTest {
     }
 
     @Test
+    public void testLargeCase_1(){
+        int size = 10_000_000;
+        int testMargin = 10;
+        // Create an int array where the values -size to +size is added
+        Integer[] arr = new Integer[size * 2 + 1];
+
+        for(int i = -size; i <= size; i++) {
+            arr[i + size] = i;   
+        }
+
+        for(float alpha = 0.1f; alpha <= 0.9f; alpha += 0.1f){
+            // Alpha shpuld be added dynamically 
+            OtherArrayBinarySearch tree = new OtherArrayBinarySearch(arr, alpha);
+
+            for(int i = -(size + testMargin); i <= (size + testMargin); i++) {
+                if(i < -size) { // i is less than the smallest number in the tree, i.e. null should be returned
+                    assertNull(tree.pred(i));
+                }
+                else if(i == -size) { // This is the first element, i.e. -size should be returned
+                    assertEquals((Integer)i, tree.pred(i)); 
+                }
+                else if(i > -size && i <= size) { // The i-1 exists in the tree, i.e. i-1 should be returned
+                    assertEquals((Integer)(i-1), tree.pred(i)); 
+                }else { // i is larger than the largest element in the tree, i.e. size should be returned
+                    assertEquals((Integer)size, tree.pred(i));
+                }
+            }
+        }
+    }
+
+    @Test
     public void testRandomizedCases() {
         Random rand = new Random(42);
 
