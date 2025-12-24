@@ -1,29 +1,37 @@
 package org.example;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+import java.util.TreeSet;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import java.util.*;
 
 public class OtherArrayBinarySearchTest {
 
     private Integer referencePred(List<Integer> sortedList, int x) {
+        boolean equalFound = false;
         // Reference: linear scan from the right
         for (int i = sortedList.size() - 1; i >= 0; i--) {
-            if (sortedList.get(i) <= x) {
+            if (sortedList.get(i) < x) {
                 return sortedList.get(i);
+            } else if(sortedList.get(i) == x) {
+                equalFound = true;
             }
         }
-        return null;
+        return equalFound ? x : null;
     }
 
-        @Test
+    @Test
     public void testPredSmallOutboundriesElement(){
         Integer[] array = new Integer[] {-1, 3, 4, 5, 10, 15};
         OtherArrayBinarySearch sortedArray = new OtherArrayBinarySearch(array, 0.2f);
 
         sortedArray.printTree();
 
-        assertEquals(Integer.valueOf(4), sortedArray.pred(4));
+        assertEquals(Integer.valueOf(-1), sortedArray.pred(3));
         assertEquals(null, sortedArray.pred(-2));
         // assertEquals(null, sortedArray.pred(-10));
         // assertEquals(null, sortedArray.pred(-1000));
@@ -58,8 +66,8 @@ public class OtherArrayBinarySearchTest {
         OtherArrayBinarySearch tree = new OtherArrayBinarySearch(arr, 0.7f);
 
         assertEquals((Integer)2, tree.pred(2));
-        assertEquals((Integer)4, tree.pred(4));
-        assertEquals((Integer)8, tree.pred(8));
+        assertEquals((Integer)2, tree.pred(4));
+        assertEquals((Integer)6, tree.pred(8));
     }
 
     @Test
