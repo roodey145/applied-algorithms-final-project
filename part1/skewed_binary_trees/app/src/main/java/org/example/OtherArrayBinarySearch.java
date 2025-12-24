@@ -49,17 +49,57 @@ public class OtherArrayBinarySearch implements BinarySearchTree<Integer> {
         int predIndex = -1;
         int index = 1;
         int cValue;
+        boolean foundAnEqual = false;
         
         do { 
             // Get current number
             cValue = tree[index];
-            if (cValue == x) return cValue;   // added
+            // if (cValue == x) return cValue;   // added
+            // if(cValue == x && !foundAnEqual) foundAnEqual = true;
+            // else if(cValue == x) return cValue;
             if(cValue < x) {
                 // Potential predeccesor
                 predIndex = index;
                 // Go to the right side
                 index = tree[index + 1];
-            } else {
+            } /*else if(cValue == x){
+                // Check if this is the first time we see an equal number
+                if(foundAnEqual){
+                    return cValue; // Pred is a number equal to x
+                } 
+
+                foundAnEqual = true; // First time seeing equal number
+                
+                // Try to go to the left node
+                if(tree[index - 1] != -1){
+                    index = tree[index - 1];
+                } else {
+                    // Go to the right node
+                    index = tree[index + 1];
+                }
+
+            }*/
+            else if(cValue == x) {
+                // If the implementation should return the smallest number
+                // equal or less than x then uncomment the line below
+                // return cValue;
+
+                // Potential predecessor
+                if(predIndex == -1) {
+                    // If there is no value to the left side of the current one
+                    // then register the current one as a potential predecessor
+                    predIndex = index;
+                }
+
+                // Try to go to the left node
+                if(tree[index - 1] != -1){
+                    index = tree[index - 1];
+                } else {
+                    // Go to the right node
+                    index = tree[index + 1];
+                }
+            }
+            else {
                 // Value is smaller or equal to the current node value
                 // Go to the left side of the node if it exists
                 index = tree[index - 1];
