@@ -1,6 +1,9 @@
 package org.example;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
+import java.util.TreeSet;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -9,18 +12,21 @@ import org.junit.Test;
 public class KArrayBinarySearchTest {
 
     private Integer referencePred(List<Integer> sortedList, int x) {
+        boolean equalFound = false;
         // Reference: linear scan from the right
         for (int i = sortedList.size() - 1; i >= 0; i--) {
-            if (sortedList.get(i) <= x) {
+            if (sortedList.get(i) < x) {
                 return sortedList.get(i);
+            } else if(sortedList.get(i) == x) {
+                equalFound = true;
             }
         }
-        return null;
+        return equalFound ? x : null;
     }
 
     @Test
     public void testPredSmallOutboundriesElement(){
-        int[] array = new int[] {1, 3, 4, 5, 10, 15};
+        int[] array = new int[] {-1, 3, 4, 5, 10, 15};
         KArrayBinarySearch sortedArray = new KArrayBinarySearch(array, 0.9f, 2);
 
         sortedArray.printTree();
@@ -28,10 +34,6 @@ public class KArrayBinarySearchTest {
         assertEquals((Integer)4, sortedArray.pred(5));
         System.out.println(sortedArray.pred(-2));
         assertNull(sortedArray.pred(-2));
-        // assertEquals(null, sortedArray.pred(-10));
-        // assertEquals(null, sortedArray.pred(-1000));
-        // assertEquals(null, sortedArray.pred(-114));
-        // assertEquals(null, sortedArray.pred(-1214214));
     }
 
     @Test
@@ -65,39 +67,65 @@ public class KArrayBinarySearchTest {
         assertEquals((Integer)6, tree.pred(8));
     }
 
-    // @Test
-    // public void testAllQueriesRange() {
-    //     int[] arr = {1, 3, 5, 7, 9};
-    //     KArrayBinarySearch tree = new KArrayBinarySearch(arr, 0.2f, 2);
+    @Test
+    public void testLargeCase_1(){
+        int size = 10_000_000;
+        int testMargin = 10;
+        // Create an int array where the values -size to +size is added
+        int[] arr = new int[size * 2 + 1];
 
-    //     for (int x = -5; x <= 15; x++) {
-    //         Integer expected = referencePred(Arrays.asList(arr), x);
-    //         assertEquals(expected, tree.pred(x));
-    //     }
-    // }
+        for(int i = -size; i <= size; i++) {
+            arr[i + size] = i;   
+        }
 
-    // @Test
-    // public void testRandomizedCases() {
-    //     Random rand = new Random(42);
+        for(float alpha = 0.1f; alpha <= 0.9f; alpha += 0.1f){
+            // Alpha shpuld be added dynamically 
+            KArrayBinarySearch tree = new KArrayBinarySearch(arr, alpha, 2);
 
-    //     for (int size = 1; size < 50; size++) {
+            for(int i = -(size + testMargin); i <= (size + testMargin); i++) {
+                if(i < -size) { // i is less than the smallest number in the tree, i.e. null should be returned
+                    assertNull(tree.pred(i));
+                }
+                else if(i == -size) { // This is the first element, i.e. -size should be returned
+                    assertEquals((Integer)i, tree.pred(i)); 
+                }
+                else if(i > -size && i <= size) { // The i-1 exists in the tree, i.e. i-1 should be returned
+                    assertEquals((Integer)(i-1), tree.pred(i)); 
+                }else { // i is larger than the largest element in the tree, i.e. size should be returned
+                    assertEquals((Integer)size, tree.pred(i));
+                }
+            }
+        }
+    }
 
-    //         // generate random input set
-    //         TreeSet<Integer> set = new TreeSet<>();
-    //         while (set.size() < size) set.add(rand.nextInt(200));  // adding elements to the TreeSet
+    @Test
+    public void testRandomizedCases() {
+        Random rand = new Random(42);
+        int setMaxSize = 10_000;
+        int extraMargin = 100;
 
-    //         int[] arr = set.toArray(new int[0]);  // passing the set elements to an array
+        for (int size = 1; size < setMaxSize; size++) {
 
-    //         float alpha = rand.nextFloat();  // rand for alpha
-    //         KArrayBinarySearch tree = new KArrayBinarySearch(arr, alpha);   // building tree
+            // generate random input set
+            TreeSet<Integer> set = new TreeSet<>();
+            while (set.size() < size) set.add(rand.nextInt(0, Integer.MAX_VALUE));  // adding elements to the TreeSet
 
-    //         List<Integer> sortedList = Arrays.asList(arr);  // passing this to a list to test it with the referencePred function
+            Integer[] arr = set.toArray(Integer[]::new);  // passing the set elements to an array
+            int[] intArr = new int[arr.length];
+            for(int i = 0; i < arr.length; i++) {
+                intArr[i] = arr[i];
+            }
 
-    //         // test all possible values in range
-    //         for (int x = -50; x <= 250; x++) {    // from -50 to -1 it must always return null
-    //             assertEquals(referencePred(sortedList, x), tree.pred(x));
-    //         }
-    //     }
-    // }
+            float alpha = rand.nextFloat();  // rand for alpha
+            KArrayBinarySearch tree = new KArrayBinarySearch(intArr, alpha, 2);   // building tree
+
+            List<Integer> sortedList = Arrays.asList(arr);  // passing this to a list to test it with the referencePred function
+
+            // test all possible values in range
+            for (int x = -50; x <= size + extraMargin; x++) {    // from -50 to -1 it must always return null
+                assertEquals(referencePred(sortedList, x), tree.pred(x));
+            }
+        }
+    }
 }
 
