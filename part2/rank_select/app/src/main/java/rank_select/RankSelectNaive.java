@@ -1,18 +1,25 @@
 package rank_select;
 
+
+/**
+ * This data strecture assumes that the input array is shaped correctly.
+ * If the input array has values that are not equal to 1 and 0, then any
+ * number above 1 is considered a 1 and any number less than 0 is considered
+ * as 0.
+ */
 public class RankSelectNaive implements RankSelectInterface {
     private final int[] data;
-
+    
     public RankSelectNaive(int[] data) {
         this.data = data.clone();
     }
 
     public int rank(int index) {
-        if (index > data.length)
+        if (index >= data.length || index < 0)
             throw new IndexOutOfBoundsException(
                     "The index " + index + " is out of bounds for array length " + data.length);
         int rank = 0;
-        for (int i = 0; i < index; i++) {
+        for (int i = 0; i <= index; i++) {
             if (data[i] > 0) // Assuming the received data is indeed only zeros and ones
                 rank++;
         }
