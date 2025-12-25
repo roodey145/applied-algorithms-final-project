@@ -9,6 +9,8 @@ import static org.junit.Assert.*;
 /**
  * The rank tests are more than sufficent as they tests all the boundaries
  * i.e. the different branches of the rank method that is the if statements.
+ * 
+ * The select tests covers all the branches of the naive select implementation.
  */
 public class RankSelectNaiveTest {
     @Test public void testRankBasic_1() {
@@ -110,5 +112,79 @@ public class RankSelectNaiveTest {
         for(int i = 0; i < ranksData.length; i++) {
             assertTrue((rs.rank(i) == i + 1));
         }
+    }
+
+    //////////////////////////////////
+    /// Testing the select method ///
+    ////////////////////////////////
+    
+    @Test public void testSelectBasic_1() {
+        int[] ranksData = new int[] {
+            0, // 0 index 1
+            0, // 0 
+            1, // 1 index 2
+            0, // 1
+            0, // 1
+            1, // 2 index 5
+            1, // 3 index 6
+            1, // 4 index 7
+            0, // 4 
+            0, // 4
+        };
+        RankSelectNaive rs = new RankSelectNaive(ranksData);
+
+        assertTrue((rs.select(0) == 0)); // Acounts for the second if statement
+        assertTrue(rs.select(1) == 2);
+        assertTrue(rs.select(2) == 5);
+        assertTrue(rs.select(3) == 6);
+        assertTrue(rs.select(4) == 7);
+    }
+
+
+    @Test public void testSelectBasic_MissCase_1() {
+        int[] ranksData = new int[] {
+            1, // 0 index 1
+            0, // 0 
+            1, // 1 index 2
+            0, // 1
+            0, // 1
+            1, // 2 index 5
+            1, // 3 index 6
+            1, // 4 index 7
+            0, // 4 
+            0, // 4
+        };
+        RankSelectNaive rs = new RankSelectNaive(ranksData);
+
+        assertTrue((rs.select(0) == -1)); // Acounts for the third if statement
+        assertTrue((rs.select(1) == 0));
+        assertTrue(rs.select(2) == 2);
+        assertTrue(rs.select(3) == 5);
+        assertTrue(rs.select(4) == 6);
+        assertTrue(rs.select(5) == 7);
+    }
+
+    @Test public void testSelectBasic_MissCase_2() {
+        int[] ranksData = new int[] {
+            1, // 0 index 1
+            0, // 0 
+            1, // 1 index 2
+            0, // 1
+            0, // 1
+            1, // 2 index 5
+            1, // 3 index 6
+            1, // 4 index 7
+            0, // 4 
+            0, // 4
+        };
+        RankSelectNaive rs = new RankSelectNaive(ranksData);
+
+        assertTrue((rs.select(0) == -1)); // Acounts for the third if statement
+        assertTrue((rs.select(1) == 0));
+        assertTrue(rs.select(2) == 2);
+        assertTrue(rs.select(3) == 5);
+        assertTrue(rs.select(4) == 6);
+        assertTrue(rs.select(5) == 7);
+        assertTrue(rs.select(6) == -1); // Acounts for a rank not in the array
     }
 }
