@@ -6,6 +6,10 @@ package rank_select;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+/**
+ * The rank tests are more than sufficent as they tests all the boundaries
+ * i.e. the different branches of the rank method that is the if statements.
+ */
 public class RankSelectNaiveTest {
     @Test public void testRankBasic_1() {
         int[] ranksData = new int[] {
