@@ -27,15 +27,31 @@ public class RankSelectNaive implements RankSelectInterface {
     }
 
     public int select(int rank) {
-        if (rank == 0)
+        // Catch the cases where the array length is 0
+        // We know the size of the array can be assumed to be at least 64
+        // but sustaining a safe implementation while coding is important
+        if(data.length == 0) return -1;
+
+        // Acount for the case where the requested rank is zero
+        if(data[0] == 0 && rank == 0) return 0;
+
+        // Catches the case where the required rank is 0 
+        // but the first element is the array has the value 1
+        if ( rank == 0 && data[0] == 1 )
             return -1;
 
         int curRank = 0;
-        int index = 0;
+        int index = -1;
 
         do {
-            curRank = data[index++] > 0 ? curRank + 1 : curRank; // Increase if data[i] == 1
-        } while (curRank < rank);
+            index++;
+            curRank = data[index] > 0 ? curRank + 1 : curRank; // Increase if data[i] == 1
+        } while (curRank < rank && index < data.length - 1);
+
+        if(curRank < rank) {
+            // Safe guard that avoids an index out of boundaries error
+            return -1;
+        }
 
         return index;
     }
