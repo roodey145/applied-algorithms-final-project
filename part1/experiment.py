@@ -19,15 +19,22 @@ def run_java(jar: str, arg: str, alpha: float, input_file: str) -> str:
     return output.decode("utf-8")
 
 
-IMPLEMENTATIONS = ["SortedArrayBinarySearch", "SearchTree", "OtherArrayBinarySearch"]
+IMPLEMENTATIONS = [
+    "SortedArrayBinarySearch",
+    "SearchTree",
+    "OtherArrayBinarySearch",
+    "KArrayBinarySearch",
+]
 
 ALPHAS = ["0.1", "0.2", "0.3", "0.4", "0.5", "0.6", "0.7", "0.8", "0.9"]
 
 FILES = {
-    "test": "input/small.txt",
-    "small": "input/data_50k.txt",
-    "medium": "input/data_500k.txt",
-    "large": "input/data_2m.txt",
+    "test": "input/uniform_data/small.txt",
+    "small": "input/uniform_data/data_50k.txt",
+    "medium": "input/uniform_data/data_500k.txt",
+    "large": "input/uniform_data/data_2m.txt",
+    "l1_locality": "input/locality_files/l1_high_locality.txt",
+    "l3_locality": "input/locality_files/l3_high_locality.txt",
 }
 
 print("Loading input files...")
@@ -42,7 +49,7 @@ for name, filepath in FILES.items():
 print("Files loaded")
 
 
-def benchmark(filename: str, runs=30):
+def benchmark(filename: str, runs=15):
     results = {}
     for impl in IMPLEMENTATIONS:
         results[impl] = {}
@@ -107,12 +114,14 @@ def results_to_csv(results, filename):
 # results_test = benchmark(INPUT_DATA["test"])
 # results_to_csv(results_test, "benchmark_results/results_test.csv", "10")
 
-results_small = benchmark(INPUT_DATA["small"])
-results_to_csv(results_small, "benchmark_results/results_small.csv")
+# results_small = benchmark(INPUT_DATA["small"])
+# results_to_csv(results_small, "benchmark_results/results_small.csv")
+results_small = benchmark(INPUT_DATA["l3_locality"])
+results_to_csv(results_small, "benchmark_results/results_l3_locality.csv")
 
-results_medium = benchmark(INPUT_DATA["medium"])
-results_to_csv(results_medium, "benchmark_results/results_medium.csv")
+# results_medium = benchmark(INPUT_DATA["medium"])
+# results_to_csv(results_medium, "benchmark_results/results_medium.csv")
 
 
-results_large = benchmark(INPUT_DATA["large"])
-results_to_csv(results_large, "benchmark_results/results_large.csv")
+# results_large = benchmark(INPUT_DATA["large"])
+# results_to_csv(results_large, "benchmark_results/results_large.csv")

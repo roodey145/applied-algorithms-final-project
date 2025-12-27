@@ -29,6 +29,9 @@ public class Main {
         if (args[0].equals("OtherArrayBinarySearch")) {
             tree = new OtherArrayBinarySearch(arr, alpha);
         }
+        if (args[0].equals("KArrayBinarySearch")) {
+            tree = new KArrayBinarySearch(arr, alpha, 2);
+        }
 
         if (tree == null) {
             throw new Error("Ensure the implementation is correctly added");

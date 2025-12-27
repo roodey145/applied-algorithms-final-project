@@ -26,8 +26,8 @@
 Icon
 
 # Ignore largedatasets
-part1/input/data_2m.txt
-part1/input/data_500k.txt
+part1/input/locality_files
+part1/input/uniform_data
 
 # Thumbnails
 ._*

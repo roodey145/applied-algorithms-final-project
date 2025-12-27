@@ -43,9 +43,14 @@ def plot_execution_time_csv(csv_file: str, filename: str, size: int):
     fig.savefig(filename, dpi=300)
 
 
+# plot_execution_time_csv(
+#     "../benchmark_results/results_small.csv", "plot_results_small_rewrite.pdf", 50000
+# )
 plot_execution_time_csv(
-    "../benchmark_results/results_small.csv", "plot_results_small.pdf", 50000
+    "../benchmark_results/results_l1_locality.csv",
+    "plot_results_l1_locality.pdf",
+    4096,
 )
-
+plot_execution_time_csv("../benchmark_results/results_l3_locality.csv","plot_results_l3_locality.pdf", 393216)
 # Make sure the path to the csv file from the experiment exists
 # And use the function as shown above
