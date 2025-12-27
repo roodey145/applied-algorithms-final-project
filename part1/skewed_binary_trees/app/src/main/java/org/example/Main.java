@@ -8,60 +8,43 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
+        if (args.length < 2) {
+            System.out.println("Usage: java Main <ImplementationName> <AlphaValue>");
+            return;
+        }
         var data = InputReader.readInput();
         int[] arr = data.array(); // An array of distinct random integers
         int[] queries = data.queries(); // An array of random integers to query the implementations
         float alpha = Float.parseFloat(args[1]);
-        Integer[] arrInteger = Arrays.stream(arr) // for Integer[] types used in constructors of some implementations
-                .boxed()
-                .toArray(Integer[]::new);
+
+        SkewedBinarySearchTree tree = null;
 
         if (args[0].equals("SortedArrayBinarySearch")) {
-            SortedArrayBinarySearch<Integer> sabs = new SortedArrayBinarySearch<>(arrInteger, alpha);
-            // Warm up
-            for (int i = 0; i < 100; i++)
-                sabs.pred(queries[i % queries.length]);
-
-            long start = System.nanoTime();
-            for (int i = 0; i < queries.length; i++) {
-                sabs.pred(queries[i]);
-            }
-            long end = System.nanoTime();
-            System.out.println(end - start);
+            tree = new SortedArrayBinarySearch(arr, alpha);
         }
-
         if (args[0].equals("SearchTree")) {
-            SearchTree st = new SearchTree(arr, alpha);
-
-            // Warm up
-            for (int i = 0; i < 100; i++)
-                st.pred(queries[i % queries.length]);
-
-            long start = System.nanoTime();
-            for (int i = 0; i < queries.length; i++) {
-                st.pred(queries[i]);
-            }
-
-            long end = System.nanoTime();
-            System.out.println(end - start);
-
+            tree = new SearchTree(arr, alpha);
         }
 
         if (args[0].equals("OtherArrayBinarySearch")) {
-            OtherArrayBinarySearch oab = new OtherArrayBinarySearch(arrInteger, alpha);
-
-            // Warm up
-            for (int i = 0; i < 100; i++) {
-                oab.pred(queries[i % queries.length]);
-            }
-
-            long start = System.nanoTime();
-            for (int i = 0; i < queries.length; i++) {
-                oab.pred(queries[i]);
-            }
-            long end = System.nanoTime();
-            System.out.println(end - start);
+            tree = new OtherArrayBinarySearch(arr, alpha);
         }
 
+        if (tree == null) {
+            throw new Error("Ensure the implementation is correctly added");
+        }
+
+        // Warm up
+        for (int i = 0; i < 10_000; i++) {
+            tree.pred(queries[i % queries.length]);
+        }
+
+        long start = System.nanoTime();
+        for (int i = 0; i < queries.length; i++) {
+            tree.pred(queries[i]);
+        }
+        long end = System.nanoTime();
+        System.out.println(end - start);
     }
+
 }
