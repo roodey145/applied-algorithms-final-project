@@ -1,17 +1,18 @@
 package org.example;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 
-public class SearchTree {
-    private int[] a;
+public class SearchTree implements SkewedBinarySearchTree {
+    private int[] tree;
     private final float alpha;
     private Node root;
 
     public SearchTree(int[] array, float alpha) {
-        this.a = Arrays.copyOf(array, array.length);
-        Arrays.sort(a);
+        this.tree = Arrays.copyOf(array, array.length);
+        Arrays.sort(tree);
         this.alpha = alpha;
-        this.root = buildSkewedTree(0, this.a.length);
+        this.root = buildSkewedTree(0, this.tree.length);
 
     }
 
@@ -46,6 +47,29 @@ public class SearchTree {
         return pred;
     }
 
+    // Simple method to ensure that the constructed binary tree contains the same
+    // elements
+    public int[] nodeToSortedArray() {
+        LinkedList<Node> queue = new LinkedList<>();
+        int[] arr = new int[this.tree.length];
+        int i = 0;
+        queue.add(this.root);
+        while (!queue.isEmpty()) {
+            Node curr = queue.pollFirst();
+            arr[i++] = curr.key;
+            if (curr.left != null) {
+                queue.add(curr.left);
+            }
+            if (curr.right != null) {
+                queue.add(curr.right);
+            }
+        }
+        Arrays.sort(arr);
+        assert (Arrays.equals(this.tree, arr));
+        return arr;
+
+    }
+
     private Node buildSkewedTree(int start, int end) {
         if (start >= end) {
             return null;
@@ -55,7 +79,7 @@ public class SearchTree {
         int n = end - start;
         int left_size = (int) (this.alpha * n);
         int root_index = start + left_size;
-        Node node = new Node(this.a[root_index]);
+        Node node = new Node(this.tree[root_index]);
         node.left = buildSkewedTree(start, root_index);
         node.right = buildSkewedTree(root_index + 1, end);
         return node;
