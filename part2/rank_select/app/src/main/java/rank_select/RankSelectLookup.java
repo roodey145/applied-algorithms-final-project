@@ -35,12 +35,12 @@ public class RankSelectLookup implements RankSelectInterface {
 
     @Override
     public int select(int rank) throws Exception {
-        return select(rank, 0, this.rank.length - 1, 0, this.rank.length - 1);
+        return select(rank, 0, this.rank.length - 1);
     }
 
     
 
-    private int select(int target, int low, int high, int prevLowAnchor, int prevLargeAnchor) {
+    private int select(int target, int low, int high) {
         if(low > high) return -1;
         int mid = low + (high - low) / 2;
         
@@ -49,12 +49,12 @@ public class RankSelectLookup implements RankSelectInterface {
                 // Mid is the index of the first element that has this rank
                 return mid;
             }
-            return select(target, low, (mid - 1), prevLowAnchor, mid);
+            return select(target, low, (mid - 1));
         } 
         else if (rank[mid] > target) {
-            return select(target, low, (mid - 1), prevLowAnchor, mid);
+            return select(target, low, (mid - 1));
         } else { // The rank of this element is less than the target
-            return select(target, mid + 1, high, mid, prevLargeAnchor);
+            return select(target, mid + 1, high);
         }
     }
 
