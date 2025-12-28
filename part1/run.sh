@@ -2,6 +2,7 @@ cd skewed_binary_trees
 echo "........Running Gradle build, automatically runs the tests........"
 gradle build
 cd ../input
+mkdir uniform_data
 echo "........Generating the input files needed for the experiments........"
 python3 createInput.py
 cd ..
