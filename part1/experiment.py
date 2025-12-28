@@ -29,12 +29,10 @@ IMPLEMENTATIONS = [
 ALPHAS = ["0.1", "0.2", "0.3", "0.4", "0.5", "0.6", "0.7", "0.8", "0.9"]
 
 FILES = {
-    "test": "input/uniform_data/small.txt",
-    "small": "input/uniform_data/data_50k.txt",
-    "medium": "input/uniform_data/data_500k.txt",
-    "large": "input/uniform_data/data_2m.txt",
-    "l1_locality": "input/locality_files/l1_high_locality.txt",
-    "l3_locality": "input/locality_files/l3_high_locality.txt",
+    "small": "input/uniform_data/L1_cache_uniform_4096.txt",
+    "medium": "input/uniform_data/L2_cache_uniform_32_768.txt",
+    "large": "input/uniform_data/L3_cache_uniform_393_216.txt",
+    "memory": "input/uniform_data/RAM_uniform_1_000_000.txt",
 }
 
 print("Loading input files...")
@@ -110,18 +108,27 @@ def results_to_csv(results, filename):
     print(f"✓ Results saved to {filename}")
 
 
-# Run this test to ensure everything is set up nicely
-# results_test = benchmark(INPUT_DATA["test"])
-# results_to_csv(results_test, "benchmark_results/results_test.csv", "10")
+print("--- Starting Benchmarks (Uniform Data) ---")
+print("\n[1/4] Running SMALL (L1 Cache Fit)...")
+print(f"Targeting: {FILES['small']} (n=4,096)")
+# SMALL - L1 Cache
+results_l1 = benchmark(INPUT_DATA["small"])
+results_to_csv(results_l1, "benchmark_results/uniform_results/results_l1.csv")
 
-# results_small = benchmark(INPUT_DATA["small"])
-# results_to_csv(results_small, "benchmark_results/results_small.csv")
-results_small = benchmark(INPUT_DATA["l3_locality"])
-results_to_csv(results_small, "benchmark_results/results_l3_locality.csv")
+# MEDIUM - L2 Cache
+print("\n[2/4] Running MEDIUM (L2 Cache Fit)...")
+print(f"Targeting: {FILES['medium']} (n=32,768)")
+results_l2 = benchmark(INPUT_DATA["medium"])
+results_to_csv(results_l2, "benchmark_results/uniform_results/results_l2.csv")
 
-# results_medium = benchmark(INPUT_DATA["medium"])
-# results_to_csv(results_medium, "benchmark_results/results_medium.csv")
+# LARGE - L3 Cache
+print("\n[3/4] Running LARGE (L3 Cache Fit)...")
+print(f"Targeting: {FILES['large']} (n=393,216)")
+results_l3 = benchmark(INPUT_DATA["large"])
+results_to_csv(results_l3, "benchmark_results/uniform_results/results_l3.csv")
 
-
-# results_large = benchmark(INPUT_DATA["large"])
-# results_to_csv(results_large, "benchmark_results/results_large.csv")
+# MEMORY - RAM
+print("\n[4/4] Running MEMORY (Beyond Cache/RAM level)...")
+print(f"Targeting: {FILES['memory']} (n=1,000,000)")
+results_memory = benchmark(INPUT_DATA["memory"])
+results_to_csv(results_memory, "benchmark_results/uniform_results/results_memory.csv")

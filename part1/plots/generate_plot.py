@@ -41,16 +41,29 @@ def plot_execution_time_csv(csv_file: str, filename: str, size: int):
     ax.grid(True)
     fig.tight_layout()
     fig.savefig(filename, dpi=300)
+    print(f"{csv_file} with an array of size {size} saved to ../plots/{filename}")
 
 
-# plot_execution_time_csv(
-#     "../benchmark_results/results_small.csv", "plot_results_small_rewrite.pdf", 50000
-# )
 plot_execution_time_csv(
-    "../benchmark_results/results_l1_locality.csv",
-    "plot_results_l1_locality.pdf",
-    4096,
+    "../benchmark_results/uniform_results/results_l1.csv",
+    "plot_results_l1.pdf",
+    4096,  # 100000 queries
 )
-plot_execution_time_csv("../benchmark_results/results_l3_locality.csv","plot_results_l3_locality.pdf", 393216)
-# Make sure the path to the csv file from the experiment exists
-# And use the function as shown above
+
+plot_execution_time_csv(
+    "../benchmark_results/uniform_results/results_l2.csv",
+    "plot_results_l2.pdf",
+    32768,  # 500000 queries
+)
+
+plot_execution_time_csv(
+    "../benchmark_results/uniform_results/results_l3.csv",
+    "plot_results_l3.pdf",
+    393215,  # 2000000 queries
+)
+
+plot_execution_time_csv(
+    "../benchmark_results/uniform_results/results_memory.csv",
+    "plot_results_memory.pdf",
+    1_000_000,  # 5000000 queries
+)
