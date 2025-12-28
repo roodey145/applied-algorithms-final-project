@@ -75,7 +75,7 @@ public class RankSelectNaiveTest {
             1, // 4
         };
         RankSelectNaive rs = new RankSelectNaive(ranksData);
-
+        
         for(int i = 0; i < ranksData.length; i++) {
             assertTrue((rs.rank(i) == i + 1));
         }
@@ -118,6 +118,12 @@ public class RankSelectNaiveTest {
     /// Testing the select method ///
     ////////////////////////////////
     
+    @Test
+    public void testSelect_EmptyArray() {
+        RankSelectNaive rs = new RankSelectNaive(new int[0]);
+        assertTrue(rs.select(0) == -1);
+    }
+
     @Test public void testSelectBasic_1() {
         int[] ranksData = new int[] {
             0, // 0 index 1
