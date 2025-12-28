@@ -1,7 +1,6 @@
 package org.example;
 
 import java.util.Arrays;
-import java.util.LinkedList;
 
 public class SearchTree implements SkewedBinarySearchTree {
     private int[] tree;
@@ -24,9 +23,9 @@ public class SearchTree implements SkewedBinarySearchTree {
             this.key = key;
         }
 
-        public String toString() {
-            return String.valueOf(this.key);
-        }
+        // public String toString() {
+        //     return String.valueOf(this.key);
+        // }
     }
 
     public Integer pred(int x) {
@@ -49,26 +48,26 @@ public class SearchTree implements SkewedBinarySearchTree {
 
     // Simple method to ensure that the constructed binary tree contains the same
     // elements
-    public int[] nodeToSortedArray() {
-        LinkedList<Node> queue = new LinkedList<>();
-        int[] arr = new int[this.tree.length];
-        int i = 0;
-        queue.add(this.root);
-        while (!queue.isEmpty()) {
-            Node curr = queue.pollFirst();
-            arr[i++] = curr.key;
-            if (curr.left != null) {
-                queue.add(curr.left);
-            }
-            if (curr.right != null) {
-                queue.add(curr.right);
-            }
-        }
-        Arrays.sort(arr);
-        assert (Arrays.equals(this.tree, arr));
-        return arr;
+    // public int[] nodeToSortedArray() {
+    //     LinkedList<Node> queue = new LinkedList<>();
+    //     int[] arr = new int[this.tree.length];
+    //     int i = 0;
+    //     queue.add(this.root);
+    //     while (!queue.isEmpty()) {
+    //         Node curr = queue.pollFirst();
+    //         arr[i++] = curr.key;
+    //         if (curr.left != null) {
+    //             queue.add(curr.left);
+    //         }
+    //         if (curr.right != null) {
+    //             queue.add(curr.right);
+    //         }
+    //     }
+    //     Arrays.sort(arr);
+    //     assert (Arrays.equals(this.tree, arr));
+    //     return arr;
 
-    }
+    // }
 
     private Node buildSkewedTree(int start, int end) {
         if (start >= end) {

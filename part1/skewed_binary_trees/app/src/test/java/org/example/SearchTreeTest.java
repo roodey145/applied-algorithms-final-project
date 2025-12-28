@@ -1,7 +1,5 @@
 package org.example;
 
-import static org.junit.Assert.*;
-
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -27,6 +25,7 @@ public class SearchTreeTest {
         // Lecture example
         int[] a = { 1, 3, 8, 12, 37, 49, 50 };
         SearchTree st = new SearchTree(a, 0.5f);
+        Assert.assertEquals(Integer.valueOf(12), st.pred(12));
         Assert.assertEquals(Integer.valueOf(12), st.pred(15));
     }
 

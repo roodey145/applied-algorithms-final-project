@@ -77,11 +77,11 @@ public class SortedArrayBinarySearch implements SkewedBinarySearchTree {
     // }
     // }
 
-    public void printList() {
-        for (int t : this.tree) {
-            System.out.println(t);
-        }
-    }
+    // public void printList() {
+    //     for (int t : this.tree) {
+    //         System.out.println(t);
+    //     }
+    // }
 
     public int[] getArray() {
         return this.tree;
