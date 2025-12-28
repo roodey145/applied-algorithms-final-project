@@ -37,4 +37,13 @@ public class SearchTreeTest {
         Assert.assertNull(st.pred(12));
         ;
     }
+
+    @Test
+    public void allElementsGreaterThanPred() {
+        // Lecture example
+        int[] a = { 2, 3, 4, 5, 6, 7 };
+        SearchTree st = new SearchTree(a, 0.5f);
+        Assert.assertNull(st.pred(1));
+        ;
+    }
 }
