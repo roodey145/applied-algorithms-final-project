@@ -96,7 +96,7 @@ public class RankSelectSpaceEfficient implements RankSelectInterface {
         int wordIndex = block * k;
 
         // Step 2: scan words until we find the word containing the r-th 1
-        while (wordIndex < numWords) {
+        while (wordIndex < numWords) { 
             int word = words[wordIndex];
             int bitCount = Integer.bitCount(word);
 
@@ -166,76 +166,76 @@ public class RankSelectSpaceEfficient implements RankSelectInterface {
         return best;
     }
 
-    /**
-     * 
-     * @param startWordIndex The index of the first word/subBlock that will be searched.
-     * @param r The number of remining ranks.
-     * @return The index of the word/subblock that contains the Rth rank.
-     */
-    public int getRthSetBitIndex(int r) {
-        if (r <= 0) {
-            return -1;
-        }
+    // /**
+    //  * 
+    //  * @param startWordIndex The index of the first word/subBlock that will be searched.
+    //  * @param r The number of remining ranks.
+    //  * @return The index of the word/subblock that contains the Rth rank.
+    //  */
+    // public int getRthSetBitIndex(int r) {
+    //     if (r <= 0) {
+    //         return -1;
+    //     }
 
-        int totalOnes = rank(n - 1);  // biggest rank
-        if (r > totalOnes) {
-            return -1; // r-th 1 doesn't exist
-        }
+    //     int totalOnes = rank(n - 1);  // biggest rank
+    //     if (r > totalOnes) {
+    //         return -1; // r-th 1 doesn't exist
+    //     }
 
-        // Step 1: find block
-        int block = findBlockForRank(r);
+    //     // Step 1: find block
+    //     int block = findBlockForRank(r);
 
-        int onesSoFar = Rs[block];
-        int wordIndex = block * k;
-        while (wordIndex < numWords) {
-            int word = words[wordIndex];
-            int bitCount = Integer.bitCount(word);
+    //     int onesSoFar = Rs[block];
+    //     int wordIndex = block * k;
+    //     while (wordIndex < numWords) {
+    //         int word = words[wordIndex];
+    //         int bitCount = Integer.bitCount(word);
 
-            if (onesSoFar + bitCount >= r) {
-                // The r-th 1 is in this word
-                break;   // we may have gone beyond the desired rank, so we go to step 3 to get the exact index
-            } else {
-                onesSoFar += bitCount;
-                wordIndex++;
-            }
-        }
+    //         if (onesSoFar + bitCount >= r) {
+    //             // The r-th 1 is in this word
+    //             break;   // we may have gone beyond the desired rank, so we go to step 3 to get the exact index
+    //         } else {
+    //             onesSoFar += bitCount;
+    //             wordIndex++;
+    //         }
+    //     }
 
-        return wordIndex;
-    }
+    //     return wordIndex;
+    // }
 
 
     // Getters
-    public int getNumWords() {
-        return numWords;
-    }
+    // public int getNumWords() {
+    //     return numWords;
+    // }
 
     public int getNumBlocks() {
         return numBlocks;
     }
 
-    public static void main(String[] args) {
-        int[] bits = new int[64];
-        bits[0] = 1;
-        bits[2] = 1;
-        bits[3] = 1;
-        bits[6] = 1;
+    // public static void main(String[] args) {
+    //     int[] bits = new int[64];
+    //     bits[0] = 1;
+    //     bits[2] = 1;
+    //     bits[3] = 1;
+    //     bits[6] = 1;
 
-        int k = 2; // superblock = 32 * 2 = 64 bits (just 1 block here)
+    //     int k = 2; // superblock = 32 * 2 = 64 bits (just 1 block here)
 
-        RankSelectSpaceEfficient rs = new RankSelectSpaceEfficient(bits, k);
+    //     RankSelectSpaceEfficient rs = new RankSelectSpaceEfficient(bits, k);
 
-        System.out.println("Rank:");
-        System.out.println("rank(0) = " + rs.rank(0)); // 1
-        System.out.println("rank(2) = " + rs.rank(2)); // 2
-        System.out.println("rank(3) = " + rs.rank(3)); // 3
-        System.out.println("rank(6) = " + rs.rank(6)); // 4
+    //     System.out.println("Rank:");
+    //     System.out.println("rank(0) = " + rs.rank(0)); // 1
+    //     System.out.println("rank(2) = " + rs.rank(2)); // 2
+    //     System.out.println("rank(3) = " + rs.rank(3)); // 3
+    //     System.out.println("rank(6) = " + rs.rank(6)); // 4
 
-        System.out.println("\nSelect:");
-        System.out.println("select(1) = " + rs.select(1)); // 0
-        System.out.println("select(2) = " + rs.select(2)); // 2
-        System.out.println("select(3) = " + rs.select(3)); // 3
-        System.out.println("select(4) = " + rs.select(4)); // 6
-        System.out.println("select(5) = " + rs.select(5)); // -1
-    }
+    //     System.out.println("\nSelect:");
+    //     System.out.println("select(1) = " + rs.select(1)); // 0
+    //     System.out.println("select(2) = " + rs.select(2)); // 2
+    //     System.out.println("select(3) = " + rs.select(3)); // 3
+    //     System.out.println("select(4) = " + rs.select(4)); // 6
+    //     System.out.println("select(5) = " + rs.select(5)); // -1
+    // }
 
 }

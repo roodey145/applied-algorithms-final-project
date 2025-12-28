@@ -32,13 +32,14 @@ public class RankSelectNaive implements RankSelectInterface {
         // but sustaining a safe implementation while coding is important
         if(data.length == 0) return -1;
 
-        // Acount for the case where the requested rank is zero
-        if(data[0] == 0 && rank == 0) return 0;
+        if(rank == 0) {
+            // Acount for the case where the requested rank is zero
+            if(data[0] == 0) return 0;
+            // Catches the case where the required rank is 0 
+            // but the first element is the array has the value 1
+            else return -1;
+        } 
 
-        // Catches the case where the required rank is 0 
-        // but the first element is the array has the value 1
-        if ( rank == 0 && data[0] == 1 )
-            return -1;
 
         int curRank = 0;
         int index = -1;

@@ -143,11 +143,11 @@ public class OtherArrayBinarySearch implements SkewedBinarySearchTree {
      * }
      */
 
-    public void printList() {
-        for (int t : this.tree) {
-            System.out.println(t);
-        }
-    }
+    // public void printList() {
+    //     for (int t : this.tree) {
+    //         System.out.println(t);
+    //     }
+    // }
 
     public void printTree() {
         int left;
@@ -172,10 +172,10 @@ public class OtherArrayBinarySearch implements SkewedBinarySearchTree {
     // public Integer[] getArray(Integer[] tArray) {
     // return list.toArray(tArray);
     // }
-    public static void main(String[] args) {
-        int[] a = { 1, 2, 4, 21, 4, 21, 4, 2, 51 };
-        OtherArrayBinarySearch oabs = new OtherArrayBinarySearch(a, 0.5f);
-        System.out.println(oabs.pred(4));
-        System.out.println(oabs.pred(52));
-    }
+    // public static void main(String[] args) {
+    //     int[] a = { 1, 2, 4, 21, 4, 21, 4, 2, 51 };
+    //     OtherArrayBinarySearch oabs = new OtherArrayBinarySearch(a, 0.5f);
+    //     System.out.println(oabs.pred(4));
+    //     System.out.println(oabs.pred(52));
+    // }
 }

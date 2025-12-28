@@ -1,7 +1,6 @@
 package org.example;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.TreeSet;
@@ -102,7 +101,7 @@ public class OtherArrayBinarySearchTest {
     public void testLargeCase_1() {
         // Change size to 10_000_000 for the final build
         // Had to change for faster gradle build
-        int size = 10_000;
+        int size = 10_000_000;
         int testMargin = 10;
         // Create an int array where the values -size to +size is added
         int[] arr = new int[size * 2 + 1];

@@ -297,25 +297,25 @@ public class KArrayBinarySearch implements SkewedBinarySearchTree {
     // }
     // }
 
-    public void printTree() {
-        int left;
-        int right;
-        for (int i = 1; i < tree.length; i += nodeClauseSize) {
-            // Get the value of the left side
-            if (tree[i - 1] > -1)
-                left = tree[tree[i - 1]];
-            else
-                left = -1;
+    // public void printTree() {
+    //     int left;
+    //     int right;
+    //     for (int i = 1; i < tree.length; i += nodeClauseSize) {
+    //         // Get the value of the left side
+    //         if (tree[i - 1] > -1)
+    //             left = tree[tree[i - 1]];
+    //         else
+    //             left = -1;
 
-            // Get the value of the right side
-            if (tree[i + 1] > -1)
-                right = tree[tree[i + 1]];
-            else
-                right = -1;
+    //         // Get the value of the right side
+    //         if (tree[i + 1] > -1)
+    //             right = tree[tree[i + 1]];
+    //         else
+    //             right = -1;
 
-            System.out.println(left/* tree[i-1] */ + "|" + tree[i] + "|" + right /* tree[i+1] */);
-        }
-    }
+    //         System.out.println(left/* tree[i-1] */ + "|" + tree[i] + "|" + right /* tree[i+1] */);
+    //     }
+    // }
 
     // public Integer[] getArray(Integer[] tArray) {
     // return list.toArray(tArray);

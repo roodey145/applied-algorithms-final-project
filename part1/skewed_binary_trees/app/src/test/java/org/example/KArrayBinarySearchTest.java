@@ -29,7 +29,7 @@ public class KArrayBinarySearchTest {
         int[] array = new int[] { -1, 3, 4, 5, 10, 15 };
         KArrayBinarySearch sortedArray = new KArrayBinarySearch(array, 0.9f, 2);
 
-        sortedArray.printTree();
+        // sortedArray.printTree();
 
         assertEquals((Integer) 4, sortedArray.pred(5));
         System.out.println(sortedArray.pred(-2));
