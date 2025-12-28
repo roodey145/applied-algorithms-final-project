@@ -9,7 +9,7 @@ cd ..
 echo "........Running the experiment, this will take a while........"
 python3 experiment.py
 cd plots/
-echo "Generating the plots from the results of the experiments
+echo "Generating the plots from the results of the experiments"
 python3 generate_plot.py
 open *.pdf
 cd ..
