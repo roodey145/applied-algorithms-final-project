@@ -30,7 +30,13 @@ java {
     }
 }
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'rank_select.Main'
+    }
+}
+
 application {
     // Define the main class for the application.
-    mainClass = 'rank_select.App'
+    mainClass = 'rank_select.Main'
 }
