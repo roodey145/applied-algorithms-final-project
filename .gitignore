@@ -29,6 +29,9 @@ Icon
 part1/input/locality_files
 part1/input/uniform_data
 
+part2/input/locality_data
+part2/input/random_data
+part2/input/sequential_data
 # Thumbnails
 ._*
 
