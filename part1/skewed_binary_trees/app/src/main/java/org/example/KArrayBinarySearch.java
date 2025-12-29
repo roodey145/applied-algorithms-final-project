@@ -98,25 +98,6 @@ public class KArrayBinarySearch implements SkewedBinarySearchTree {
         // index += addNodeClauseData(sortedArray, index, centerNodeClauseData);
         shift = addNodeClauseData(sortedArray, index, centerNodeClauseData, shift) + 3;
 
-        // if(centerNodeClauseData[0] != null) { // There is a left node
-        // index += 3;
-        // // Get the left node data and add them
-        // lowerBound = getLowerBound(low, high, centerNodeClauseData[1]);
-        // Integer[] leftNodeClauseData = getNodeClauseData(lowerBound[0],
-        // lowerBound[1]);
-        // // index += addNodeClauseData(sortedArray, index, leftNodeClauseData);
-        // shift = addNodeClauseData(sortedArray, index, leftNodeClauseData, shift);
-        // }
-
-        // if(centerNodeClauseData[2] != null) { // There is a left node
-        // index += 3;
-        // // Get the left node data and add them
-        // upperBound = getUpperBound(low, high, centerNodeClauseData[1]);
-        // Integer[] rightNodeClauseData = getNodeClauseData(upperBound[0],
-        // upperBound[1]);
-        // // index += addNodeClauseData(sortedArray, index, rightNodeClauseData);
-        // shift = addNodeClauseData(sortedArray, index, rightNodeClauseData, shift);
-        // }
 
         // Check if the lowerBound is not null
         // if(lowerBound != null) { // Hanlde the side of the left node
@@ -149,20 +130,6 @@ public class KArrayBinarySearch implements SkewedBinarySearchTree {
             // Add the left node
             addNodeClause(sortedArray, leftNodePosIndex, leftNode, centerNodeClauseData[0], rightNode);
 
-            // index += nodeClauseSize;
-            // // Handle the left side of the left node
-            // int[] leftNodeLowerBound = getLowerBound(lowerBound[0], lowerBound[1],
-            // centerNodeClauseData[0]);
-            // index = handleAddingTreeNode(index, leftNodeLowerBound[0],
-            // leftNodeLowerBound[1]);
-
-            // index += nodeClauseSize;
-
-            // // Handle the right side of the left node
-            // int[] leftNodeUpperBound = getUpperBound(lowerBound[0], lowerBound[1],
-            // centerNodeClauseData[0]);
-            // index = handleAddingTreeNode(index, leftNodeUpperBound[0],
-            // leftNodeUpperBound[1]);
         }
 
         if (centerNodeClauseData[2] != null) {
@@ -194,24 +161,6 @@ public class KArrayBinarySearch implements SkewedBinarySearchTree {
             // Add the left node
             addNodeClause(sortedArray, rightNodePosIndex, leftNode, centerNodeClauseData[2], rightNode);
         }
-
-        // Check if the upperBound is not null
-        // if(upperBound != null) { // Hanlde the side of the left node
-        // index += nodeClauseSize;
-        // // Handle the left side of the left node
-        // int[] rightNodeLowerBound = getLowerBound(upperBound[0], upperBound[1],
-        // centerNodeClauseData[2]);
-        // index = handleAddingTreeNode(index, rightNodeLowerBound[0],
-        // rightNodeLowerBound[1]);
-
-        // index += nodeClauseSize;
-
-        // // Handle the right side of the left node
-        // int[] rightNodeUpperBound = getUpperBound(upperBound[0], upperBound[1],
-        // centerNodeClauseData[2]);
-        // index = handleAddingTreeNode(index, rightNodeUpperBound[0],
-        // rightNodeUpperBound[1]);
-        // }
 
         return shift;
     }

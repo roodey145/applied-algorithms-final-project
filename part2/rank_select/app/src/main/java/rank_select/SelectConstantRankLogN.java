@@ -16,11 +16,11 @@ import java.util.List;
  * this class is even better than using an improved data 
  * strecture where each integer represents 32 bits.
  */
-public class RankConstantSelectLogN implements RankSelectInterface {
+public class SelectConstantRankLogN implements RankSelectInterface {
     private final int[] data;
 
     
-    public RankConstantSelectLogN(int[] data) {
+    public SelectConstantRankLogN(int[] data) {
         // Go through all the element and save the ranks only
         List<Integer> ranksInfo = new ArrayList<>();
 

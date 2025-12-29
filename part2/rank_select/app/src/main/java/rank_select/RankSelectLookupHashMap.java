@@ -13,6 +13,8 @@ import java.util.Map;
 */
 public class RankSelectLookupHashMap implements RankSelectInterface {
     private final int[] rank;
+    // The map can be easily exchanged with an int array which will improve the 
+    // space efficency.
     private final Map<Integer, Integer> rankIndexMap; // Allows for constant select, space complexity O(n)
 
     public RankSelectLookupHashMap(int[] data) {
