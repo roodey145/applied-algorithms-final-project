@@ -1,6 +1,5 @@
 package rank_select;
 
-
 /**
  * This data strecture assumes that the input array is shaped correctly.
  * If the input array has values that are not equal to 1 and 0, then any
@@ -9,9 +8,10 @@ package rank_select;
  */
 public class RankSelectNaive implements RankSelectInterface {
     private final int[] data;
-    
+
     public RankSelectNaive(int[] data) {
-        this.data = data.clone();
+        // No need to clone here as its only being read from
+        this.data = data;
     }
 
     public int rank(int index) {
@@ -30,16 +30,18 @@ public class RankSelectNaive implements RankSelectInterface {
         // Catch the cases where the array length is 0
         // We know the size of the array can be assumed to be at least 64
         // but sustaining a safe implementation while coding is important
-        if(data.length == 0) return -1;
+        if (data.length == 0)
+            return -1;
 
-        if(rank == 0) {
+        if (rank == 0) {
             // Acount for the case where the requested rank is zero
-            if(data[0] == 0) return 0;
-            // Catches the case where the required rank is 0 
+            if (data[0] == 0)
+                return 0;
+            // Catches the case where the required rank is 0
             // but the first element is the array has the value 1
-            else return -1;
-        } 
-
+            else
+                return -1;
+        }
 
         int curRank = 0;
         int index = -1;
@@ -49,7 +51,7 @@ public class RankSelectNaive implements RankSelectInterface {
             curRank = data[index] > 0 ? curRank + 1 : curRank; // Increase if data[i] == 1
         } while (curRank < rank && index < data.length - 1);
 
-        if(curRank < rank) {
+        if (curRank < rank) {
             // Safe guard that avoids an index out of boundaries error
             return -1;
         }
