@@ -3,9 +3,18 @@
  */
 package rank_select;
 
+import java.io.IOException;
+
 public class Main {
 
-    public static void main(String[] args) {
-        System.out.println("Hello World");
+    public static void main(String[] args) throws IOException {
+        var data = InputReader.readInput();
+        RankSelectNaive rs = new RankSelectNaive(data.bits());
+        System.out.println(rs.rank(data.bits().length - 1) == data.totalOnes());
+        for (int i = 0; i < 10; i++) {
+            System.out.println(data.rankQuery()[i]);
+            System.out.println(data.selectQuery()[i]);
+        }
+
     }
 }
