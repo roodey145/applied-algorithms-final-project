@@ -92,8 +92,14 @@ def generate_test_data(n: int, num_queries: int):
     )
 
 
-#       l1/l2 - l2/l3 - l3 - RAM(minor) - RAM(major)
-sizes = [2**14, 2**17, 2**19, 2**22, 2**26]
+sizes = [
+    2**12,  # 4K bits   = 16 KB   - L2 (in cache)
+    2**15,  # 32K bits  = 128 KB  - L2/L3 boundary
+    2**17,  # 131K bits = 524 KB  - Just past L3 → RAM transition ⚡
+    2**20,  # 1M bits   = 4 MB    - Solidly in RAM
+    2**23,  # 8M bits   = 32 MB   - Large RAM
+    2**26,  # 67M bits  = 268 MB  - Very large (test limits)
+]
 num_queries = 100000
 
 for n in sizes:

@@ -3,18 +3,59 @@
  */
 package rank_select;
 
-import java.io.IOException;
-
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         var data = InputReader.readInput();
-        RankSelectNaive rs = new RankSelectNaive(data.bits());
-        System.out.println(rs.rank(data.bits().length - 1) == data.totalOnes());
-        for (int i = 0; i < 10; i++) {
-            System.out.println(data.rankQuery()[i]);
-            System.out.println(data.selectQuery()[i]);
+        String implementation = args[0];
+        int[] rankQueries = data.rankQuery();
+        int[] selectQueries = data.selectQuery();
+        int warmUps = 50_000;
+        long buildTime = 0;
+        RankSelectInterface rs = null;
+        if (implementation.equals("RankSelectNaive")) {
+            Long start = System.nanoTime();
+            rs = new RankSelectNaive(data.bits());
+            Long end = System.nanoTime();
+            buildTime = end - start;
         }
+        if (implementation.equals("RankSelectLookup")) {
+            Long start = System.nanoTime();
+            rs = new RankSelectLookup(data.bits());
+            Long end = System.nanoTime();
+            buildTime = end - start;
+        }
+        if (implementation.equals("RankSelectSpaceEfficient")) {
+            int k = Integer.parseInt(args[1]);
+            Long start = System.nanoTime();
+            rs = new RankSelectSpaceEfficient(data.bits(), k);
+            Long end = System.nanoTime();
+            buildTime = end - start;
+        }
+        if (rs == null) {
+            throw new Error("Ensure the implementation is correctly added");
+        }
+
+        for (int i = 0; i < warmUps; i++) {
+            rs.rank(rankQueries[i]);
+            rs.select(selectQueries[i]);
+        }
+
+        long timeRank, endRank, timeSelect, endSelect;
+
+        timeRank = System.nanoTime();
+        for (int i = 0; i < rankQueries.length; i++) {
+            rs.rank(rankQueries[i]);
+        }
+        endRank = System.nanoTime();
+
+        timeSelect = System.nanoTime();
+        for (int i = 0; i < selectQueries.length; i++) {
+            rs.select(selectQueries[i]);
+        }
+        endSelect = System.nanoTime();
+
+        System.out.format("%d,%d,%d\n", buildTime, endRank - timeRank, endSelect - timeSelect);
 
     }
 }
