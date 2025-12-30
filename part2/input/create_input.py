@@ -16,14 +16,14 @@ def save_to_file(
     fileName: str, bit_string, rank_queries, select_queries, n, num_queries, total_ones
 ):
     print(f"Creating {fileName} | n={n}, Q={num_queries}, 1s={total_ones}")
-    with open(f"{fileName}.txt", "w") as file:
+    with open(f"{fileName}", "w") as file:
         file.write(f"{n} {num_queries} {total_ones}\n")
         # second line bit string
         file.write(f"{bit_string}\n")
         # rank queries
         file.write(" ".join(map(str, rank_queries)) + "\n")
         # select queries
-        file.write(" ".join(map(str, select_queries)) + "\n")
+        file.write(" ".join(map(str, select_queries)))
     print(f"{fileName} created ✓")
 
 
