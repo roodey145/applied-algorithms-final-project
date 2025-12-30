@@ -2,7 +2,7 @@ import subprocess
 import csv
 import numpy as np
 
-TIMEOUT = 30
+TIMEOUT = 300
 
 
 # run the given jar package,
@@ -38,8 +38,8 @@ def run_java(jar: str, arg: str, input_file: str, k: str = None) -> str:
 
 RANK_SELECT_SPECIAL = "RankSelectSpaceEfficient"
 SPACE_EFF_K_VALUES = ["32", "64", "256"]
-FILE_SIZES = ["4096"]
-# "32768", "131072", "1048576", "8388608", "67108864"
+FILE_SIZES = ["4096", "32768", "131072", "1048576", "8388608", "67108864"]
+
 IMPLEMENTATIONS = [
     "RankSelectNaive",
     "RankSelectLookup",
