@@ -1,0 +1,304 @@
+data_type,bit_size,implementation,k,rank_mean_ns,rank_median_ns,rank_std_ns,select_mean_ns,select_median_ns,select_std_ns,build_mean_ns,build_median_ns,build_std_ns,error
+loc,4096,RankSelectNaive,N/A,82561062.13333334,81576234.0,2198087.3524109353,120791579.06666666,120342027.0,2103865.7182417787,942201.5333333333,833884.0,404049.59744596813,
+loc,4096,RankSelectLookup,N/A,3158314.3333333335,3043599.0,639841.6917980745,9380185.866666667,8301524.0,3980769.336606043,937411.6666666666,976705.0,164845.88302033982,
+loc,4096,RankSelectSpaceEfficient_k32,32,5452221.6,4647660.0,2677336.0676589655,8667308.466666667,7690777.0,2061457.515881999,1054000.2666666666,1097986.0,140721.9239765511,
+loc,4096,RankSelectSpaceEfficient_k64,64,4870470.866666666,4717047.0,407066.98958817846,11693963.4,11484085.0,649611.7341550823,1067057.3333333333,1083660.0,157528.64731032963,
+loc,4096,RankSelectSpaceEfficient_k256,256,5296542.2,5247254.0,185713.29048336847,13659839.0,13585578.0,392631.13495035004,1042752.6,1088836.0,195528.31197375653,
+rand,4096,RankSelectNaive,N/A,81693919.66666667,81494190.0,355650.2362362338,124349503.93333334,121971470.0,4301705.329887136,828768.8,822268.0,115417.26936075612,
+rand,4096,RankSelectLookup,N/A,2981388.6,2913823.0,339265.01144990866,11547854.2,11504987.0,1598593.1395585807,971832.6,1018536.0,156779.44200045275,
+rand,4096,RankSelectSpaceEfficient_k32,32,5128119.0,4999099.0,701132.0928163726,10034487.6,9664424.0,741230.9091823591,1402572.0666666667,1087845.0,1404326.9338719987,
+rand,4096,RankSelectSpaceEfficient_k64,64,5550434.266666667,5211790.0,666169.8124567006,12982198.666666666,12657902.0,770992.8433203226,1002078.5333333333,931060.0,178534.9994642943,
+rand,4096,RankSelectSpaceEfficient_k256,256,5864587.066666666,5585727.0,1062074.147590865,15511684.066666666,15103027.0,1453877.5937460698,1025952.3333333334,1065021.0,188003.22043967465,
+seq,4096,RankSelectNaive,N/A,80736816.73333333,80389512.0,697177.520685941,127177132.93333334,127804633.0,2440586.821577616,773954.5333333333,837160.0,126430.38468968694,
+seq,4096,RankSelectLookup,N/A,3160871.2,3204973.0,253005.93442241626,9999211.933333334,8282345.0,3636615.874906788,942110.6,933105.0,118308.05939230572,
+seq,4096,RankSelectSpaceEfficient_k32,32,4525237.466666667,4401799.0,800581.4382199033,9891616.6,8897207.0,2296496.4487553877,1030443.8,1118409.0,160712.01399571844,
+seq,4096,RankSelectSpaceEfficient_k64,64,4478367.4,4338361.0,351210.6712974043,12151283.466666667,11925191.0,660334.2095452239,1040268.1333333333,1006426.0,208833.48115595727,
+seq,4096,RankSelectSpaceEfficient_k256,256,4670795.2,4625694.0,192716.04398949246,14332292.666666666,14344568.0,163763.80592901338,1001553.4,1077589.0,159118.2231176136,
+loc,32768,RankSelectNaive,N/A,645157350.1333333,644061923.0,2926267.707222128,5598581762.8,5544396929.0,74946841.92218249,828344.7333333333,858649.0,86675.7964489639,
+loc,32768,RankSelectLookup,N/A,3144806.2666666666,3195261.0,457632.71264038316,12881768.933333334,10885719.0,3592224.495442612,1793934.5333333334,1971181.0,289399.3477352398,
+loc,32768,RankSelectSpaceEfficient_k32,32,4850175.733333333,4432031.0,713872.4238887008,9888532.866666667,9881698.0,56864.69928742162,2316129.8666666667,2553034.0,402092.6602476709,
+loc,32768,RankSelectSpaceEfficient_k64,64,5268367.466666667,5221897.0,154974.19223421972,12854324.2,12871190.0,80523.90041323134,2310884.8666666667,2559286.0,389078.6594546775,
+loc,32768,RankSelectSpaceEfficient_k256,256,7518742.666666667,7443817.0,256408.18416362783,23999162.6,24030401.0,114477.29366985112,2317559.8,2578041.0,459206.48149682436,
+rand,32768,RankSelectNaive,N/A,646609425.2666667,646278938.0,1265656.0402295967,5683564823.2,5663474410.0,78734171.71726258,769406.0666666667,708364.0,125800.77876996186,
+rand,32768,RankSelectLookup,N/A,3498908.8666666667,2975110.0,2009832.9387346222,15531430.733333332,14852310.0,3086491.943388102,1859824.6666666667,1980072.0,229605.6503574964,
+rand,32768,RankSelectSpaceEfficient_k32,32,5253518.2,4800102.0,1473741.2467136919,15908264.733333332,15127295.0,1513723.9689644638,2482630.1333333333,2596322.0,697171.4148645574,
+rand,32768,RankSelectSpaceEfficient_k64,64,5488329.466666667,5223623.0,709700.8973319081,17720777.066666666,17553119.0,483528.4855981726,2227547.7333333334,2265435.0,411630.4639590332,
+rand,32768,RankSelectSpaceEfficient_k256,256,7725061.133333334,7475549.0,666793.0228427076,27655096.066666666,26961940.0,1549986.4543765734,2345946.8666666667,2580030.0,380114.23512585735,
+seq,32768,RankSelectNaive,N/A,601733205.8,599719531.0,5502299.774408579,5159975573.6,5167779073.0,37727982.23061587,923605.7333333333,860206.0,380225.60335174104,
+seq,32768,RankSelectLookup,N/A,3051708.466666667,3013240.0,266501.41885447607,9956917.466666667,9056510.0,2515140.9814182017,1695319.8,1599939.0,288810.18459978176,
+seq,32768,RankSelectSpaceEfficient_k32,32,4096379.6666666665,3625530.0,734232.9767030504,10128350.333333334,9689422.0,1339112.362916703,2285516.933333333,2616657.0,410464.5461302704,
+seq,32768,RankSelectSpaceEfficient_k64,64,4512237.733333333,4353953.0,345838.5398803834,12735089.133333333,12605716.0,702422.796444408,2479599.7333333334,2628182.0,308114.89404321596,
+seq,32768,RankSelectSpaceEfficient_k256,256,6654084.4,6474978.0,652628.6925531036,23356877.2,22858165.0,1328125.5508522377,2230458.466666667,2479844.0,381568.3789995998,
+loc,131072,RankSelectNaive,N/A,2586365037.6,2585142588.0,6207586.3943324145,24312332526.4,24308135721.0,28553370.24431329,1031426.1333333333,885730.0,524885.9941667164,
+loc,131072,RankSelectLookup,N/A,3303800.3333333335,3313274.0,639524.5897542608,14953561.8,13674361.0,2840409.2361789746,3772595.0,3367127.0,627767.6136331554,
+loc,131072,RankSelectSpaceEfficient_k32,32,5370499.066666666,5497018.0,652990.8411997283,13155522.8,12912995.0,479738.94679546985,4627657.133333334,4113470.0,679327.4746787804,
+loc,131072,RankSelectSpaceEfficient_k64,64,5648523.933333334,5227611.0,692810.3729098814,15912437.333333334,15824244.0,328105.2196629747,5029087.866666666,5443349.0,1038017.4523755604,
+loc,131072,RankSelectSpaceEfficient_k256,256,7579966.266666667,7560606.0,188444.45094597212,26481522.4,26421145.0,185457.6225764438,4367310.266666667,4032141.0,639585.1065602312,
+rand,131072,RankSelectNaive,N/A,2577671641.0666666,2576071024.0,8689020.851086566,24342920017.466667,24329008060.0,51786083.72146503,909390.8666666667,854700.0,371531.92518272536,
+rand,131072,RankSelectLookup,N/A,3179317.0,3329619.0,625584.3212208353,19618733.6,19422458.0,1460893.7856565206,3877520.0,3653289.0,640513.1069529594,
+rand,131072,RankSelectSpaceEfficient_k32,32,5094413.333333333,5016888.0,701188.1662845019,17129898.533333335,16659251.0,972866.509575825,4325847.533333333,4079305.0,558404.4134846914,
+rand,131072,RankSelectSpaceEfficient_k64,64,5370945.8,5225113.0,243126.28072483922,19065217.0,19048930.0,103096.30012501257,4882872.933333334,5309476.0,714440.0260238752,
+rand,131072,RankSelectSpaceEfficient_k256,256,7543987.866666666,7498068.0,226433.12366549988,28951491.733333334,28478835.0,1391793.2507620743,5223280.8,5340793.0,1416561.3223487926,
+seq,131072,RankSelectNaive,N/A,1193093209.9333334,1191319459.0,3470601.1706707426,20205497102.866665,20204686067.0,22741511.79475825,941968.4666666667,836432.0,544422.0752765102,
+seq,131072,RankSelectLookup,N/A,3269252.2,3307023.0,564638.3498257033,13964404.066666666,11905991.0,4782032.372321117,3919293.6666666665,4256038.0,546756.8105175178,
+seq,131072,RankSelectSpaceEfficient_k32,32,4354423.6,4104988.0,1055706.9250155112,10376669.8,9953135.0,887771.3359493873,4715929.066666666,4480376.0,762115.6471863891,
+seq,131072,RankSelectSpaceEfficient_k64,64,4871918.933333334,4352387.0,799034.4628037405,12858420.266666668,12840784.0,213686.6868551452,4811137.266666667,5297779.0,709702.3154296423,
+seq,131072,RankSelectSpaceEfficient_k256,256,6507831.666666667,6495488.0,69887.38147397489,23419033.266666666,23332924.0,405419.51211561373,4571054.4,4170194.0,638597.7885609271,
+loc,1048576,RankSelectNaive,N/A,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,Java process timed out after 300s
+loc,1048576,RankSelectLookup,N/A,2341906.466666667,2102714.0,490241.9836151485,17848061.333333332,17583000.0,842408.7094651596,13982122.8,13229528.0,1984148.7125169558,
+loc,1048576,RankSelectSpaceEfficient_k32,32,4861474.8,4439318.0,1285326.2760684644,16815842.333333332,16445812.0,1252591.9174278944,14500709.8,14026580.0,2177478.9871079563,
+loc,1048576,RankSelectSpaceEfficient_k64,64,5382756.0,5228864.0,402818.47499835456,18716638.733333334,18700280.0,70997.36970758533,14949592.266666668,15051095.0,1841479.0961246511,
+loc,1048576,RankSelectSpaceEfficient_k256,256,7559939.533333333,7507467.0,236372.00952026638,28759631.666666668,28278676.0,1397267.6041727853,15728984.266666668,16026383.0,2376815.1334024128,
+rand,1048576,RankSelectNaive,N/A,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,Java process timed out after 300s
+rand,1048576,RankSelectLookup,N/A,4198310.333333333,3968433.0,492275.7846010935,34125271.666666664,33174167.0,2290601.0915402872,12894679.2,12579938.0,1874419.5176140338,
+rand,1048576,RankSelectSpaceEfficient_k32,32,4691736.333333333,4518234.0,346783.4997675383,18891524.133333333,18562175.0,718282.2534977798,14510275.733333332,14360960.0,1754012.223876503,
+rand,1048576,RankSelectSpaceEfficient_k64,64,5288520.533333333,5279220.0,39841.85648764653,21128051.6,21103042.0,120937.77552708665,15216862.2,14437126.0,2319226.4879655372,
+rand,1048576,RankSelectSpaceEfficient_k256,256,7735412.866666666,7603854.0,406637.0141645358,30277516.4,30238201.0,133548.742343161,14088830.266666668,13840723.0,2107169.575697361,
+seq,1048576,RankSelectNaive,N/A,1194959559.7333333,1191914677.0,6386583.651320347,37408971684.666664,37415536650.0,38747231.69041711,827234.3333333334,734885.0,137332.8655928928,
+seq,1048576,RankSelectLookup,N/A,2404506.0,2412001.0,424140.56502233626,10318029.133333333,9862755.0,1058950.6327038333,14475325.533333333,14044169.0,2067578.447145706,
+seq,1048576,RankSelectSpaceEfficient_k32,32,3735201.8,3533019.0,488874.8595096295,10345590.333333334,10251159.0,309761.85859886336,15122835.666666666,15273973.0,1643188.9020619497,
+seq,1048576,RankSelectSpaceEfficient_k64,64,4493604.0,4364722.0,477021.9276324028,13455829.066666666,13337819.0,425324.6886600819,15235872.133333333,15547998.0,1865368.8416235852,
+seq,1048576,RankSelectSpaceEfficient_k256,256,6549791.666666667,6548123.0,71714.63398095414,23839782.533333335,23779656.0,425481.68889700633,14836779.733333332,15214384.0,1778279.3329958583,
+loc,8388608,RankSelectNaive,N/A,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,Java process timed out after 300s
+loc,8388608,RankSelectLookup,N/A,4033857.6666666665,3609754.0,988623.0735410178,29693949.066666666,28358764.0,2728005.536582883,30326571.866666667,28949251.0,7274226.150343947,
+loc,8388608,RankSelectSpaceEfficient_k32,32,4640937.266666667,4486879.0,385624.19275394134,19074637.866666667,18696601.0,865940.927423718,57350680.733333334,56176172.0,6840619.200292778,
+loc,8388608,RankSelectSpaceEfficient_k64,64,5534530.533333333,5292800.0,511551.946559339,22124874.533333335,21059463.0,1656440.9472006687,58880791.86666667,56367310.0,5631697.002167841,
+loc,8388608,RankSelectSpaceEfficient_k256,256,7566577.066666666,7531245.0,76536.51594149176,30521237.733333334,30360789.0,390065.20433289383,57682982.86666667,56319547.0,4825355.838550865,
+rand,8388608,RankSelectNaive,N/A,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,Java process timed out after 300s
+rand,8388608,RankSelectLookup,N/A,5614299.066666666,4965647.0,1645126.3784047095,63335013.6,62379871.0,4405785.100321028,28540515.533333335,27659695.0,6396345.989438031,
+rand,8388608,RankSelectSpaceEfficient_k32,32,5368796.533333333,5232259.0,576565.4403306841,23280831.266666666,22523103.0,2314248.2638559323,55671162.333333336,55261408.0,3050412.5603664974,
+rand,8388608,RankSelectSpaceEfficient_k64,64,6492973.466666667,6209387.0,796162.7774915434,25292907.533333335,24531180.0,1868684.4711927467,55875870.333333336,54993795.0,3321358.8167643207,
+rand,8388608,RankSelectSpaceEfficient_k256,256,8488941.133333333,8335462.0,401077.4802260974,33638430.86666667,33416129.0,684025.5061682877,54641551.13333333,53985023.0,3371067.141592147,
+seq,8388608,RankSelectNaive,N/A,1201049514.1333334,1190904314.0,25550743.129936837,37143883974.6,37063107320.0,119798518.92729992,1265130.2666666666,920741.0,1376891.5343001408,
+seq,8388608,RankSelectLookup,N/A,2552204.7333333334,2371491.0,597374.8363522373,12175346.066666666,11226939.0,1877133.3311102318,32685433.8,32864318.0,5697667.477849127,
+seq,8388608,RankSelectSpaceEfficient_k32,32,3650736.8,3524371.0,491285.9276990267,11163713.266666668,10697914.0,1819748.792418575,56221448.53333333,54591073.0,3211275.5535881347,
+seq,8388608,RankSelectSpaceEfficient_k64,64,4531577.333333333,4384520.0,326400.32928673475,14375072.066666666,13719508.0,1850818.560177576,54701055.733333334,54491872.0,4005061.4806865985,
+seq,8388608,RankSelectSpaceEfficient_k256,256,6705726.933333334,6495646.0,683561.3423993945,24354420.2,24277315.0,293788.3595922298,59727505.53333333,56139000.0,9434760.654249383,
+loc,67108864,RankSelectNaive,N/A,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,Java process timed out after 300s
+loc,67108864,RankSelectLookup,N/A,4987506.2,4864226.0,292125.9683169117,57692823.666666664,57194294.0,1647209.142009181,109436466.06666666,108693498.0,2896327.6643927675,
+loc,67108864,RankSelectSpaceEfficient_k32,32,5080592.533333333,5047443.0,124418.25407169516,22368802.8,22221802.0,402424.27065278584,328592785.4,327155776.0,4347605.183622907,
+loc,67108864,RankSelectSpaceEfficient_k64,64,6345626.0,5985537.0,785507.2492290995,25127040.133333333,24305880.0,1754303.7789982236,330217795.6666667,330258204.0,2721526.6004685108,
+loc,67108864,RankSelectSpaceEfficient_k256,256,8326129.466666667,8237606.0,265187.1056329516,33770884.86666667,33282250.0,1350030.0173797058,329616556.2,329176677.0,3419153.2265388593,
+rand,67108864,RankSelectNaive,N/A,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,Java process timed out after 300s
+rand,67108864,RankSelectLookup,N/A,5899845.066666666,5861856.0,253140.42865083585,84108221.53333333,83784408.0,3066381.04840956,108070126.26666667,108121826.0,1898739.315194952,
+rand,67108864,RankSelectSpaceEfficient_k32,32,9816295.733333332,9747042.0,504314.6286118705,31669497.4,31593943.0,761062.9464631511,329381988.26666665,329146443.0,2713296.4240263286,
+rand,67108864,RankSelectSpaceEfficient_k64,64,12102580.066666666,11757825.0,1006023.9143660199,33371024.933333334,33166694.0,806417.9486077483,331070245.1333333,329127459.0,5940361.740297178,
+rand,67108864,RankSelectSpaceEfficient_k256,256,15747176.866666667,15703924.0,601651.9418347973,42454574.06666667,42300320.0,717867.7723266744,329047110.06666666,327981444.0,3952487.597680099,
+seq,67108864,RankSelectNaive,N/A,1193616261.2666667,1190527761.0,5114653.342326294,36838169837.26667,36923534400.0,134615700.17463532,1091377.3333333333,929826.0,528757.3753372672,
+seq,67108864,RankSelectLookup,N/A,2082408.3333333333,2006310.0,205750.7984271804,12230179.933333334,12227904.0,208733.10892635654,108826168.53333333,108225430.0,2320469.160432084,
+seq,67108864,RankSelectSpaceEfficient_k32,32,3608364.3333333335,3512544.0,312392.7273606449,11599202.0,11355680.0,769932.0129025246,333920430.73333335,330423631.0,8953418.866312834,
+seq,67108864,RankSelectSpaceEfficient_k64,64,4503383.533333333,4352776.0,452594.51939882006,14985777.866666667,14343064.0,2368484.131490741,333638102.93333334,332430785.0,5886244.187183068,
+seq,67108864,RankSelectSpaceEfficient_k256,256,6809817.133333334,6508694.0,870340.6637349819,25264534.6,24671302.0,1956686.9201825417,334052819.06666666,330459106.0,10887225.690514259,
+loc,268435456,RankSelectNaive,N/A,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,Java process timed out after 300s
+loc,268435456,RankSelectLookup,N/A,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,"Java execution failed: Java process failed with code 1: Exception in thread ""main"" java.lang.OutOfMemoryError: Java heap space
+	at rank_select.RankSelectLookup.<init>(RankSelectLookup.java:17)
+	at rank_select.Main.main(Main.java:24)
+"
+loc,268435456,RankSelectSpaceEfficient_k32,32,7186976.066666666,7018680.0,513649.7442968268,28260920.933333334,28302039.0,915643.0169477235,1263382941.1333334,1263071305.0,8487298.24177106,
+loc,268435456,RankSelectSpaceEfficient_k64,64,8106723.0,8025751.0,192691.4208171535,29231741.6,28711024.0,1218724.1535002524,1266328991.4666667,1267009029.0,9401090.140338115,
+loc,268435456,RankSelectSpaceEfficient_k256,256,11053025.266666668,10618421.0,1219038.3384626023,38450612.0,37307749.0,2364751.057075762,1270315552.0,1267996708.0,9618978.38060875,
+rand,268435456,RankSelectNaive,N/A,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,Java process timed out after 300s
+rand,268435456,RankSelectLookup,N/A,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,"Java execution failed: Java process failed with code 1: Exception in thread ""main"" java.lang.OutOfMemoryError: Java heap space
+	at rank_select.RankSelectLookup.<init>(RankSelectLookup.java:17)
+	at rank_select.Main.main(Main.java:24)
+"
+rand,268435456,RankSelectSpaceEfficient_k32,32,11318648.466666667,11125392.0,401569.7735817718,40804675.333333336,40660369.0,847332.2633592772,1270529247.6666667,1268076922.0,8914593.433975728,
+rand,268435456,RankSelectSpaceEfficient_k64,64,13160886.6,12952570.0,343387.51303734584,40721188.6,39979686.0,1658229.540293655,1271135538.9333334,1267275523.0,8425066.95291356,
+rand,268435456,RankSelectSpaceEfficient_k256,256,17470886.2,16940447.0,1719518.4825793216,46811218.46666667,46197657.0,1155685.6753983393,1270770543.3333333,1270032121.0,8776922.78799103,
+seq,268435456,RankSelectNaive,N/A,1193431746.5333333,1189694346.0,6319982.767970873,37421346276.26667,37414571840.0,24521725.063080862,857495.8,854206.0,182443.90272892104,
+seq,268435456,RankSelectLookup,N/A,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,"Java execution failed: Java process failed with code 1: Exception in thread ""main"" java.lang.OutOfMemoryError: Java heap space
+	at rank_select.RankSelectLookup.<init>(RankSelectLookup.java:17)
+	at rank_select.Main.main(Main.java:24)
+"
+seq,268435456,RankSelectSpaceEfficient_k32,32,3618584.2,3533781.0,233671.88993720803,12391216.4,11749202.0,1533083.4197860989,1268754111.4,1268146414.0,10315853.636891635,
+seq,268435456,RankSelectSpaceEfficient_k64,64,4528294.533333333,4345784.0,414289.63146939717,15588406.4,14838931.0,1768398.7186676275,1270159855.7333333,1268554626.0,11071224.312414404,
+seq,268435456,RankSelectSpaceEfficient_k256,256,6498073.133333334,6502138.0,29085.526755568462,24888262.0,24880481.0,126647.55591430364,1268267541.2666667,1270582215.0,9318617.207914742,
+loc,536870912,RankSelectNaive,N/A,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,Java process timed out after 300s
+loc,536870912,RankSelectLookup,N/A,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,"Java execution failed: Java process failed with code 1: Exception in thread ""main"" java.lang.OutOfMemoryError: Java heap space
+	at rank_select.RankSelectLookup.<init>(RankSelectLookup.java:17)
+	at rank_select.Main.main(Main.java:24)
+"
+loc,536870912,RankSelectSpaceEfficient_k32,32,8969564.533333333,8724387.0,670378.3613266832,32734670.8,31394676.0,3482286.3228359846,2503508578.8,2499615102.0,17280500.390120815,
+loc,536870912,RankSelectSpaceEfficient_k64,64,10833829.8,10407019.0,1026897.8173501132,33775260.93333333,33083150.0,2460074.355005216,2507763121.4666667,2505416777.0,13584989.953973887,
+loc,536870912,RankSelectSpaceEfficient_k256,256,14452097.8,13840255.0,1483154.8587331981,41340560.0,40250482.0,2118245.4057419,2506637283.3333335,2498646503.0,19573677.956643067,
+rand,536870912,RankSelectNaive,N/A,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,Java process timed out after 300s
+rand,536870912,RankSelectLookup,N/A,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,"Java execution failed: Java process failed with code 1: Exception in thread ""main"" java.lang.OutOfMemoryError: Java heap space
+	at rank_select.RankSelectLookup.<init>(RankSelectLookup.java:17)
+	at rank_select.Main.main(Main.java:24)
+"
+rand,536870912,RankSelectSpaceEfficient_k32,32,11629737.733333332,11546436.0,376933.801989592,44528951.06666667,44516129.0,382932.6694269663,2495578814.9333334,2493454163.0,14575348.881506842,
+rand,536870912,RankSelectSpaceEfficient_k64,64,13833864.333333334,13487723.0,924658.967076667,44337769.06666667,43762209.0,1906192.9570466352,2504511612.6666665,2498226477.0,23469267.339771368,
+rand,536870912,RankSelectSpaceEfficient_k256,256,18189301.2,17631296.0,1552378.0072568322,49423675.06666667,49196380.0,1287516.9722565196,2493310931.9333334,2490603781.0,9684131.634837247,
+seq,536870912,RankSelectNaive,N/A,1195058073.2666667,1189940667.0,12837974.25729497,37182406960.6,37216912853.0,282093206.9363472,847326.7333333333,720430.0,393038.8923782593,
+seq,536870912,RankSelectLookup,N/A,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,"Java execution failed: Java process failed with code 1: Exception in thread ""main"" java.lang.OutOfMemoryError: Java heap space
+	at rank_select.RankSelectLookup.<init>(RankSelectLookup.java:17)
+	at rank_select.Main.main(Main.java:24)
+"
+seq,536870912,RankSelectSpaceEfficient_k32,32,3530036.6666666665,3502701.0,94685.18784524265,11810430.866666667,11782034.0,73925.7076312579,2504331264.8,2502745450.0,15989331.686536165,
+seq,536870912,RankSelectSpaceEfficient_k64,64,4355437.8,4322657.0,93270.79441440034,15013439.733333332,14840279.0,602084.2977069425,2508586111.866667,2504690141.0,15125856.914950786,
+seq,536870912,RankSelectSpaceEfficient_k256,256,6570456.2,6467771.0,311425.02895008295,26593238.666666668,25164842.0,4165070.90511933,2501356370.3333335,2499890050.0,10647972.558284773,
+loc,1073741824,RankSelectNaive,N/A,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,"Java execution failed: Java process failed with code 1: Exception in thread ""main"" java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.util.Arrays.copyOf(Arrays.java:3541)
+	at java.base/java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:242)
+	at java.base/java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:744)
+	at java.base/java.lang.StringBuilder.append(StringBuilder.java:233)
+	at java.base/java.io.BufferedReader.implReadLine(BufferedReader.java:417)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:347)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:436)
+	at rank_select.InputReader.readInput(InputReader.java:22)
+	at rank_select.Main.main(Main.java:9)
+"
+loc,1073741824,RankSelectLookup,N/A,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,"Java execution failed: Java process failed with code 1: Exception in thread ""main"" java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.util.Arrays.copyOf(Arrays.java:3541)
+	at java.base/java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:242)
+	at java.base/java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:744)
+	at java.base/java.lang.StringBuilder.append(StringBuilder.java:233)
+	at java.base/java.io.BufferedReader.implReadLine(BufferedReader.java:417)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:347)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:436)
+	at rank_select.InputReader.readInput(InputReader.java:22)
+	at rank_select.Main.main(Main.java:9)
+"
+loc,1073741824,RankSelectSpaceEfficient_k32,32,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,"Java execution failed: Java process failed with code 1: Exception in thread ""main"" java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.util.Arrays.copyOf(Arrays.java:3541)
+	at java.base/java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:242)
+	at java.base/java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:744)
+	at java.base/java.lang.StringBuilder.append(StringBuilder.java:233)
+	at java.base/java.io.BufferedReader.implReadLine(BufferedReader.java:417)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:347)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:436)
+	at rank_select.InputReader.readInput(InputReader.java:22)
+	at rank_select.Main.main(Main.java:9)
+"
+loc,1073741824,RankSelectSpaceEfficient_k64,64,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,"Java execution failed: Java process failed with code 1: Exception in thread ""main"" java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.util.Arrays.copyOf(Arrays.java:3541)
+	at java.base/java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:242)
+	at java.base/java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:744)
+	at java.base/java.lang.StringBuilder.append(StringBuilder.java:233)
+	at java.base/java.io.BufferedReader.implReadLine(BufferedReader.java:417)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:347)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:436)
+	at rank_select.InputReader.readInput(InputReader.java:22)
+	at rank_select.Main.main(Main.java:9)
+"
+loc,1073741824,RankSelectSpaceEfficient_k256,256,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,"Java execution failed: Java process failed with code 1: Exception in thread ""main"" java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.util.Arrays.copyOf(Arrays.java:3541)
+	at java.base/java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:242)
+	at java.base/java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:744)
+	at java.base/java.lang.StringBuilder.append(StringBuilder.java:233)
+	at java.base/java.io.BufferedReader.implReadLine(BufferedReader.java:417)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:347)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:436)
+	at rank_select.InputReader.readInput(InputReader.java:22)
+	at rank_select.Main.main(Main.java:9)
+"
+rand,1073741824,RankSelectNaive,N/A,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,"Java execution failed: Java process failed with code 1: Exception in thread ""main"" java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.util.Arrays.copyOf(Arrays.java:3541)
+	at java.base/java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:242)
+	at java.base/java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:744)
+	at java.base/java.lang.StringBuilder.append(StringBuilder.java:233)
+	at java.base/java.io.BufferedReader.implReadLine(BufferedReader.java:417)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:347)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:436)
+	at rank_select.InputReader.readInput(InputReader.java:22)
+	at rank_select.Main.main(Main.java:9)
+"
+rand,1073741824,RankSelectLookup,N/A,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,"Java execution failed: Java process failed with code 1: Exception in thread ""main"" java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.util.Arrays.copyOf(Arrays.java:3541)
+	at java.base/java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:242)
+	at java.base/java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:744)
+	at java.base/java.lang.StringBuilder.append(StringBuilder.java:233)
+	at java.base/java.io.BufferedReader.implReadLine(BufferedReader.java:417)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:347)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:436)
+	at rank_select.InputReader.readInput(InputReader.java:22)
+	at rank_select.Main.main(Main.java:9)
+"
+rand,1073741824,RankSelectSpaceEfficient_k32,32,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,"Java execution failed: Java process failed with code 1: Exception in thread ""main"" java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.util.Arrays.copyOf(Arrays.java:3541)
+	at java.base/java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:242)
+	at java.base/java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:744)
+	at java.base/java.lang.StringBuilder.append(StringBuilder.java:233)
+	at java.base/java.io.BufferedReader.implReadLine(BufferedReader.java:417)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:347)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:436)
+	at rank_select.InputReader.readInput(InputReader.java:22)
+	at rank_select.Main.main(Main.java:9)
+"
+rand,1073741824,RankSelectSpaceEfficient_k64,64,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,"Java execution failed: Java process failed with code 1: Exception in thread ""main"" java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.util.Arrays.copyOf(Arrays.java:3541)
+	at java.base/java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:242)
+	at java.base/java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:744)
+	at java.base/java.lang.StringBuilder.append(StringBuilder.java:233)
+	at java.base/java.io.BufferedReader.implReadLine(BufferedReader.java:417)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:347)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:436)
+	at rank_select.InputReader.readInput(InputReader.java:22)
+	at rank_select.Main.main(Main.java:9)
+"
+rand,1073741824,RankSelectSpaceEfficient_k256,256,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,"Java execution failed: Java process failed with code 1: Exception in thread ""main"" java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.util.Arrays.copyOf(Arrays.java:3541)
+	at java.base/java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:242)
+	at java.base/java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:744)
+	at java.base/java.lang.StringBuilder.append(StringBuilder.java:233)
+	at java.base/java.io.BufferedReader.implReadLine(BufferedReader.java:417)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:347)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:436)
+	at rank_select.InputReader.readInput(InputReader.java:22)
+	at rank_select.Main.main(Main.java:9)
+"
+seq,1073741824,RankSelectNaive,N/A,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,"Java execution failed: Java process failed with code 1: Exception in thread ""main"" java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.util.Arrays.copyOf(Arrays.java:3541)
+	at java.base/java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:242)
+	at java.base/java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:744)
+	at java.base/java.lang.StringBuilder.append(StringBuilder.java:233)
+	at java.base/java.io.BufferedReader.implReadLine(BufferedReader.java:417)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:347)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:436)
+	at rank_select.InputReader.readInput(InputReader.java:22)
+	at rank_select.Main.main(Main.java:9)
+"
+seq,1073741824,RankSelectLookup,N/A,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,"Java execution failed: Java process failed with code 1: Exception in thread ""main"" java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.util.Arrays.copyOf(Arrays.java:3541)
+	at java.base/java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:242)
+	at java.base/java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:744)
+	at java.base/java.lang.StringBuilder.append(StringBuilder.java:233)
+	at java.base/java.io.BufferedReader.implReadLine(BufferedReader.java:417)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:347)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:436)
+	at rank_select.InputReader.readInput(InputReader.java:22)
+	at rank_select.Main.main(Main.java:9)
+"
+seq,1073741824,RankSelectSpaceEfficient_k32,32,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,"Java execution failed: Java process failed with code 1: Exception in thread ""main"" java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.util.Arrays.copyOf(Arrays.java:3541)
+	at java.base/java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:242)
+	at java.base/java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:744)
+	at java.base/java.lang.StringBuilder.append(StringBuilder.java:233)
+	at java.base/java.io.BufferedReader.implReadLine(BufferedReader.java:417)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:347)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:436)
+	at rank_select.InputReader.readInput(InputReader.java:22)
+	at rank_select.Main.main(Main.java:9)
+"
+seq,1073741824,RankSelectSpaceEfficient_k64,64,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,"Java execution failed: Java process failed with code 1: Exception in thread ""main"" java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.util.Arrays.copyOf(Arrays.java:3541)
+	at java.base/java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:242)
+	at java.base/java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:744)
+	at java.base/java.lang.StringBuilder.append(StringBuilder.java:233)
+	at java.base/java.io.BufferedReader.implReadLine(BufferedReader.java:417)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:347)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:436)
+	at rank_select.InputReader.readInput(InputReader.java:22)
+	at rank_select.Main.main(Main.java:9)
+"
+seq,1073741824,RankSelectSpaceEfficient_k256,256,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,FAILED,"Java execution failed: Java process failed with code 1: Exception in thread ""main"" java.lang.OutOfMemoryError: Java heap space
+	at java.base/java.util.Arrays.copyOf(Arrays.java:3541)
+	at java.base/java.lang.AbstractStringBuilder.ensureCapacityInternal(AbstractStringBuilder.java:242)
+	at java.base/java.lang.AbstractStringBuilder.append(AbstractStringBuilder.java:744)
+	at java.base/java.lang.StringBuilder.append(StringBuilder.java:233)
+	at java.base/java.io.BufferedReader.implReadLine(BufferedReader.java:417)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:347)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:436)
+	at rank_select.InputReader.readInput(InputReader.java:22)
+	at rank_select.Main.main(Main.java:9)
+"
