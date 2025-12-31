@@ -4,7 +4,7 @@ import seaborn as sns  # <--- This defines 'sns'
 import numpy as np
 
 
-data_types = {"seq": "Sequential", "loc": "Locality", "rand": "Random Uniform Data"}
+data_t = {"seq": "Sequential", "loc": "Locality", "rand": "Random Uniform Data"}
 
 
 def load_and_clean_data(csv_path):
@@ -55,7 +55,7 @@ def compareBuilds(
     plt.xscale("log", base=2)
     plt.yscale("log")
     plt.title(
-        f"Implementation Build Time as a Function of n ({data_types[data_type]} Queries)"
+        f"Implementation Build Time as a Function of n ({data_t[data_type]} Queries)"
     )
     plt.ylabel("Time (ns) - Log Scale")
     plt.xlabel("n (Size in bits) - Log Scale")
@@ -65,6 +65,47 @@ def compareBuilds(
     plt.close()
 
 
-compareBuilds("../benchmark_results/master_results.csv", "plot_buildTime_seq", "seq")
-compareBuilds("../benchmark_results/master_results.csv", "plot_buildTime_loc", "loc")
-compareBuilds("../benchmark_results/master_results.csv", "plot_buildTime_rand")
+def compareQueryDataTypes(csv_path, op_type="rank"):
+    df = load_and_clean_data(csv_path)
+    data_types = ["rand", "seq"]
+    metric = f"{op_type}_mean_ns"
+
+    # Create a 1x3 grid
+    fig, axes = plt.subplots(1, 2, figsize=(18, 6), sharey=True)
+
+    for i, dtype in enumerate(data_types):
+        subset = df[df["data_type"] == dtype]
+        sns.lineplot(
+            data=subset,
+            x="bit_size",
+            y=metric,
+            hue="implementation",
+            ax=axes[i],
+            marker="o",
+        )
+
+        axes[i].set_title(
+            f"{op_type.capitalize()} operations as a function of n - With {data_t[dtype]} queries"
+        )
+        axes[i].set_xscale("log", base=2)
+        axes[i].set_yscale("log")
+        axes[i].grid(True, which="both", ls="-", alpha=0.2)
+
+        # Improve x-labels
+        xticks = [2**13, 2**17, 2**21, 2**25, 2**29]
+        axes[i].set_xticks(xticks)
+        axes[i].set_xticklabels([f"$2^{{{int(np.log2(x))}}}$" for x in xticks])
+
+    plt.suptitle(
+        f"{op_type.capitalize()} Query Performance Across Data Distributions",
+        fontsize=16,
+    )
+    plt.tight_layout(rect=[0, 0.03, 1, 0.95])
+    plt.savefig(f"plot_{op_type}_all_distributions.pdf")
+
+
+# compareBuilds("../benchmark_results/master_results.csv", "plot_buildTime_seq", "seq")
+# compareBuilds("../benchmark_results/master_results.csv", "plot_buildTime_loc", "loc")
+# compareBuilds("../benchmark_results/master_results.csv", "plot_buildTime_rand")
+compareQueryDataTypes("../benchmark_results/master_results.csv")
+compareQueryDataTypes("../benchmark_results/master_results.csv", "select")
