@@ -11,6 +11,8 @@ public class RankSelectNaive implements RankSelectInterface {
 
     public RankSelectNaive(int[] data) {
         // No need to clone here as its only being read from
+        // But cloning would be benefical to restrict any modification
+        // on the data after the creation of the class
         this.data = data;
     }
 

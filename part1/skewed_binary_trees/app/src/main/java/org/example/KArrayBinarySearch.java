@@ -183,6 +183,11 @@ public class KArrayBinarySearch implements SkewedBinarySearchTree {
                 // Go to the right side
                 index = tree[index + 1];
             } else if (cValue == x) {
+                // Uncomment the below line if you want to return immeditely if x is in the set
+                // return cValue;
+
+                // The below code will return only x if there is no element that is 
+                // less than x.
                 // Potential predecessor
                 if (predIndex == -1) {
                     // If there is no value to the left side of the current one
@@ -190,7 +195,7 @@ public class KArrayBinarySearch implements SkewedBinarySearchTree {
                     predIndex = index;
                 }
 
-                // Try to go to the left node
+                // // Try to go to the left node
                 if (tree[index - 1] != -1) {
                     index = tree[index - 1];
                 } else {
