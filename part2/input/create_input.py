@@ -99,6 +99,9 @@ sizes = [
     2**20,  # 1M bits   = 4 MB    - Solidly in RAM
     2**23,  # 8M bits   = 32 MB   - Large RAM
     2**26,  # 67M bits  = 268 MB  - Very large (test limits)
+    2**28,  # 256M bits = 1 GB
+    2**29,  # 512M bits = 2 GB
+    2**30,
 ]
 num_queries = 100000
 
