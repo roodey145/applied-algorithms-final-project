@@ -12,7 +12,7 @@ TIMEOUT = 300
 # process,
 # and return the stdout from the process as string
 def run_java(jar: str, arg: str, input_file: str, k: str = None) -> str:
-    cmd = ["java", "-jar", jar, arg]
+    cmd = ["java", "-Xmx5G", "-jar", jar, arg]
     if k is not None:
         cmd.append(k)
 
@@ -38,7 +38,17 @@ def run_java(jar: str, arg: str, input_file: str, k: str = None) -> str:
 
 RANK_SELECT_SPECIAL = "RankSelectSpaceEfficient"
 SPACE_EFF_K_VALUES = ["32", "64", "256"]
-FILE_SIZES = ["4096", "32768", "131072", "1048576", "8388608", "67108864"]
+FILE_SIZES = [
+    "4096",
+    "32768",
+    "131072",
+    "1048576",
+    "8388608",
+    "67108864",
+    "268435456",  # 2^28
+    "536870912",  # 2^29
+    1073741824,
+]
 
 IMPLEMENTATIONS = [
     "RankSelectNaive",
@@ -70,15 +80,27 @@ FILES = {
     "n_67108864_loc": "input/locality_data/n_67108864loc.txt",
     "n_67108864_rand": "input/random_data/n_67108864rand.txt",
     "n_67108864_seq": "input/sequential_data/n_67108864seq.txt",
+    # n = 2^28 (268435456)
+    "n_268435456_loc": "input/locality_data/n_268435456loc.txt",
+    "n_268435456_rand": "input/random_data/n_268435456rand.txt",
+    "n_268435456_seq": "input/sequential_data/n_268435456seq.txt",
+    # n = 2^29 (536870912)
+    "n_536870912_loc": "input/locality_data/n_536870912loc.txt",
+    "n_536870912_rand": "input/random_data/n_536870912rand.txt",
+    "n_536870912_seq": "input/sequential_data/n_536870912seq.txt",
+    # n = 2^30 (1073741824)
+    "n_1073741824_loc": "input/locality_data/n_1073741824loc.txt",
+    "n_1073741824_rand": "input/random_data/n_1073741824rand.txt",
+    "n_1073741824_seq": "input/sequential_data/n_1073741824seq.txt",
 }
 
 
-INPUT_DATA = {}
+# INPUT_DATA = {}
 
-for name, path in FILES.items():
-    with open(path, "r") as f:
-        INPUT_DATA[name] = f.read()
-    print(f"Loaded {name}: {path}")
+# for name, path in FILES.items():
+#     with open(path, "r") as f:
+#         INPUT_DATA[name] = f.read()
+#     print(f"Loaded {name}: {path}")
 
 
 def benchmark(filename: str, runs=15):
@@ -169,10 +191,15 @@ def run_all_experiments():
         all_results[size] = {}
         for data_type in ["loc", "rand", "seq"]:
             file_key = f"n_{size}_{data_type}"
-            if file_key in INPUT_DATA:
+            if file_key in FILES:
+                filepath = FILES[file_key]
                 print(f"\n--- Running: {file_key} ---")
-                file_results = benchmark(INPUT_DATA[file_key], runs=15)
+                with open(filepath, "r") as file:
+                    file_data = file.read()
+                file_results = benchmark(file_data, runs=15)
                 all_results[size][data_type] = file_results
+
+                del file_data
     return all_results
 
 
