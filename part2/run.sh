@@ -7,6 +7,10 @@ python3 create_input.py
 cd ..
 echo "........Running the experiment, this will take a while........"
 python3 experiment.py
+cd benchmark_results
+echo "........Combining the csv files into one file........"
+python3 combine_csv.py
+cd ..
 cd plots
 echo "Generating the plots from the results of the experiments"
 python3 plot.py
