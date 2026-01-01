@@ -104,8 +104,8 @@ def compareQueryDataTypes(csv_path, op_type="rank"):
     plt.savefig(f"plot_{op_type}_all_distributions.pdf")
 
 
-# compareBuilds("../benchmark_results/master_results.csv", "plot_buildTime_seq", "seq")
-# compareBuilds("../benchmark_results/master_results.csv", "plot_buildTime_loc", "loc")
-# compareBuilds("../benchmark_results/master_results.csv", "plot_buildTime_rand")
+compareBuilds("../benchmark_results/master_results.csv", "plot_buildTime_seq", "seq")
+compareBuilds("../benchmark_results/master_results.csv", "plot_buildTime_loc", "loc")
+compareBuilds("../benchmark_results/master_results.csv", "plot_buildTime_rand")
 compareQueryDataTypes("../benchmark_results/master_results.csv")
 compareQueryDataTypes("../benchmark_results/master_results.csv", "select")
