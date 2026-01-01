@@ -46,4 +46,33 @@ public class SearchTreeTest {
         Assert.assertNull(st.pred(1));
         ;
     }
+
+    @Test
+    public void exhaustiveTest() {
+        for (int n = 0; n < 100; n++) {
+            int[] data = new int[n];
+            for (int i = 0; i < n; i++)
+                data[i] = i * 2;
+
+            float[] alphas = { 0.1f, 0.5f, 0.9f };
+            for (float alpha : alphas) {
+                SearchTree st = new SearchTree(data, alpha);
+                for (int x = -1; x <= (2 * n); x++) {
+                    Integer expected = goldenModelPred(data, x);
+                    Integer actual = st.pred(x);
+                    Assert.assertEquals("Failed for size " + n + " alpha " + alpha + " query " + x,
+                            expected, actual);
+                }
+            }
+        }
+    }
+
+    private Integer goldenModelPred(int[] sortedData, int x) {
+        for (int val : sortedData) {
+            if (val <= x) {
+                return val;
+            }
+        }
+        return null;
+    }
 }
