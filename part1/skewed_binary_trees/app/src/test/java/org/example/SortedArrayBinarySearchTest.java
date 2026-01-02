@@ -79,4 +79,53 @@ public class SortedArrayBinarySearchTest {
         assertEquals((Integer) 15, sortedArray.pred(61523));
         assertEquals((Integer) 15, sortedArray.pred(61523234));
     }
+
+    @Test
+    public void exhaustiveTest() {
+        // We test all sizes n < 100
+        for (int n = 0; n < 100; n++) {
+            int[] data = new int[n];
+
+            // Fill with a simple, strictly increasing, even sequence: 0, 2, 4, ...
+            for (int i = 0; i < n; i++) {
+                data[i] = i * 2;
+            }
+
+            // Try multiple alpha values (even if the implementation ignores alpha,
+            // this shows the tests do not depend on a single parameter choice).
+            float[] alphas = { 0.1f, 0.5f, 0.9f };
+            for (float alpha : alphas) {
+                SortedArrayBinarySearch sab = new SortedArrayBinarySearch(data, alpha);
+
+                // For each size n, we query a range that:
+                //  - goes below the smallest element (x = -1),
+                //  - hits all elements and gaps up to just above the largest (2*n).
+                for (int x = -1; x <= 2 * n; x++) {
+                    Integer expected = goldenModelPred(data, x);
+                    Integer actual = sab.pred(x);
+
+                    assertEquals("Failed for size " + n + " alpha " + alpha + " query " + x,
+                            expected, actual);
+                }
+            }
+        }
+    }
+
+    /**
+     * Golden model for pred: returns the largest value in the (sorted) array
+     * that is <= x, or null if no such value exists.
+     */
+    private Integer goldenModelPred(int[] data, int x) {
+        Integer pred = null;
+        for (int value : data) {
+            if (value <= x) {
+                pred = value;
+            } else {
+                // data is sorted ascending, so we can stop early
+                break;
+            }
+        }
+        return pred;
+    }
+
 }

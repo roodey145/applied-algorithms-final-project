@@ -67,12 +67,16 @@ public class SearchTreeTest {
         }
     }
 
-    private Integer goldenModelPred(int[] sortedData, int x) {
-        for (int val : sortedData) {
-            if (val <= x) {
-                return val;
-            }
+    private Integer goldenModelPred(int[] data, int x) {
+    Integer pred = null;
+    for (int v : data) {
+        if (v <= x) {      
+            pred = v;
+        } else {
+            break;         
         }
-        return null;
     }
+    return pred;
+}
+
 }
